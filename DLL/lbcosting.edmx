@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LBCOSTING.V_FARMER_GETLIST' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_FARMER_GETLIST">
+          <Key>
+            <PropertyRef Name="FARMERCODE" />
+            <PropertyRef Name="FARMERNAMER" />
+          </Key>
+          <Property Name="FARMERCODE" Type="nvarchar2" MaxLength="15" Nullable="false" />
+          <Property Name="FARMERNAMER" Type="nvarchar2" MaxLength="100" Nullable="false" />
+          <Property Name="NLOCK" Type="nvarchar2" MaxLength="1" />
+          <Property Name="NACTIVE" Type="nvarchar2" MaxLength="1" />
+          <Property Name="USERID" Type="nvarchar2" MaxLength="20" />
+          <Property Name="MODIFIEDDATE" Type="date" />
+          <Property Name="FADDRESS" Type="nvarchar2" MaxLength="200" />
+          <Property Name="FLOORSPACE" Type="number" Precision="38" Scale="0" />
+          <Property Name="HENHOUSEQTY" Type="number" Precision="38" Scale="0" />
+          <Property Name="CAPACITY" Type="number" Precision="38" Scale="0" />
+          <Property Name="TYPE" Type="nvarchar2" MaxLength="20" />
+          <Property Name="AREAID" Type="number" Precision="38" Scale="0" />
+          <Property Name="FARMOWNERID" Type="nvarchar2" MaxLength="15" />
+          <Property Name="STATUSCHICHIN" Type="nvarchar2" MaxLength="1" />
+          <Property Name="WAREHOUSEID" Type="nvarchar2" MaxLength="2" />
+          <Property Name="QUARANTINE" Type="nvarchar2" MaxLength="100" />
+          <Property Name="SEQNO" Type="number" Precision="38" Scale="0" />
+          <Property Name="REGIONID" Type="nvarchar2" MaxLength="2" />
+          <Property Name="NOTES" Type="nvarchar2" MaxLength="100" />
+          <Property Name="SUBAREAID" Type="nvarchar2" MaxLength="3" />
+          <Property Name="UNITID" Type="varchar2" MaxLength="5" />
+          <Property Name="FARMOWNERNAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="AREANAME" Type="nvarchar2" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6006: The facet 'MaxLength' with a value '0' is outside the range 1-2000 specified by the facet description.  The column 'MLAT' in the table 'LBCOSTING.V_LOCATION_GETLIST' was excluded.
+warning 6006: The facet 'MaxLength' with a value '0' is outside the range 1-2000 specified by the facet description.  The column 'MLONG' in the table 'LBCOSTING.V_LOCATION_GETLIST' was excluded.
+warning 6002: The table/view 'LBCOSTING.V_LOCATION_GETLIST' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_LOCATION_GETLIST">
+          <Key>
+            <PropertyRef Name="LOCATIONID" />
+            <PropertyRef Name="LOCATIONNAME" />
+          </Key>
+          <Property Name="LOCATIONID" Type="nvarchar2" MaxLength="15" Nullable="false" />
+          <Property Name="LOCATIONNAME" Type="nvarchar2" MaxLength="100" Nullable="false" />
+          <Property Name="REGION" Type="char" MaxLength="5" />
+          <Property Name="DIVISION" Type="char" MaxLength="7" />
+          <Property Name="UNIT" Type="nvarchar2" MaxLength="5" />
+          <Property Name="CONTACTNAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="PHONENUMBER" Type="nvarchar2" MaxLength="20" />
+          <Property Name="ADDRESS" Type="nvarchar2" MaxLength="200" />
+          <Property Name="PROVINCENAME" Type="nvarchar2" MaxLength="100" />
+          <Property Name="BIRDTYPE" Type="varchar2" MaxLength="7" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="V_FARMER_GETLIST" EntityType="Self.V_FARMER_GETLIST" store:Type="Views" store:Schema="LBCOSTING">
+            <DefiningQuery>SELECT 
+"V_FARMER_GETLIST"."FARMERCODE" AS "FARMERCODE", 
+"V_FARMER_GETLIST"."FARMERNAMER" AS "FARMERNAMER", 
+"V_FARMER_GETLIST"."NLOCK" AS "NLOCK", 
+"V_FARMER_GETLIST"."NACTIVE" AS "NACTIVE", 
+"V_FARMER_GETLIST"."USERID" AS "USERID", 
+"V_FARMER_GETLIST"."MODIFIEDDATE" AS "MODIFIEDDATE", 
+"V_FARMER_GETLIST"."FADDRESS" AS "FADDRESS", 
+"V_FARMER_GETLIST"."FLOORSPACE" AS "FLOORSPACE", 
+"V_FARMER_GETLIST"."HENHOUSEQTY" AS "HENHOUSEQTY", 
+"V_FARMER_GETLIST"."CAPACITY" AS "CAPACITY", 
+"V_FARMER_GETLIST"."TYPE" AS "TYPE", 
+"V_FARMER_GETLIST"."AREAID" AS "AREAID", 
+"V_FARMER_GETLIST"."FARMOWNERID" AS "FARMOWNERID", 
+"V_FARMER_GETLIST"."STATUSCHICHIN" AS "STATUSCHICHIN", 
+"V_FARMER_GETLIST"."WAREHOUSEID" AS "WAREHOUSEID", 
+"V_FARMER_GETLIST"."QUARANTINE" AS "QUARANTINE", 
+"V_FARMER_GETLIST"."SEQNO" AS "SEQNO", 
+"V_FARMER_GETLIST"."REGIONID" AS "REGIONID", 
+"V_FARMER_GETLIST"."NOTES" AS "NOTES", 
+"V_FARMER_GETLIST"."SUBAREAID" AS "SUBAREAID", 
+"V_FARMER_GETLIST"."UNITID" AS "UNITID", 
+"V_FARMER_GETLIST"."FARMOWNERNAME" AS "FARMOWNERNAME", 
+"V_FARMER_GETLIST"."AREANAME" AS "AREANAME"
+FROM "LBCOSTING"."V_FARMER_GETLIST" "V_FARMER_GETLIST"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_LOCATION_GETLIST" EntityType="Self.V_LOCATION_GETLIST" store:Type="Views" store:Schema="LBCOSTING">
+            <DefiningQuery>SELECT 
+"V_LOCATION_GETLIST"."LOCATIONID" AS "LOCATIONID", 
+"V_LOCATION_GETLIST"."LOCATIONNAME" AS "LOCATIONNAME", 
+"V_LOCATION_GETLIST"."REGION" AS "REGION", 
+"V_LOCATION_GETLIST"."DIVISION" AS "DIVISION", 
+"V_LOCATION_GETLIST"."UNIT" AS "UNIT", 
+"V_LOCATION_GETLIST"."CONTACTNAME" AS "CONTACTNAME", 
+"V_LOCATION_GETLIST"."PHONENUMBER" AS "PHONENUMBER", 
+"V_LOCATION_GETLIST"."ADDRESS" AS "ADDRESS", 
+"V_LOCATION_GETLIST"."PROVINCENAME" AS "PROVINCENAME", 
+"V_LOCATION_GETLIST"."BIRDTYPE" AS "BIRDTYPE"
+FROM "LBCOSTING"."V_LOCATION_GETLIST" "V_LOCATION_GETLIST"</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="V_FARMER_GETLIST">
+          <Key>
+            <PropertyRef Name="FARMERCODE" />
+            <PropertyRef Name="FARMERNAMER" />
+          </Key>
+          <Property Name="FARMERCODE" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FARMERNAMER" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NLOCK" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="NACTIVE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="USERID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MODIFIEDDATE" Type="DateTime" />
+          <Property Name="FADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FLOORSPACE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="HENHOUSEQTY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="CAPACITY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AREAID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="FARMOWNERID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="STATUSCHICHIN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="WAREHOUSEID" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="QUARANTINE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SEQNO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="REGIONID" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="NOTES" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SUBAREAID" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="UNITID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FARMOWNERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AREANAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_LOCATION_GETLIST">
+          <Key>
+            <PropertyRef Name="LOCATIONID" />
+            <PropertyRef Name="LOCATIONNAME" />
+          </Key>
+          <Property Name="LOCATIONID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LOCATIONNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="REGION" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="DIVISION" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+          <Property Name="UNIT" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="CONTACTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PHONENUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PROVINCENAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BIRDTYPE" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="EntitiesLBCosting" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="V_FARMER_GETLIST" EntityType="Self.V_FARMER_GETLIST" />
+          <EntitySet Name="V_LOCATION_GETLIST" EntityType="Self.V_LOCATION_GETLIST" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="EntitiesLBCosting">
+          <EntitySetMapping Name="V_FARMER_GETLIST">
+            <EntityTypeMapping TypeName="Model.V_FARMER_GETLIST">
+              <MappingFragment StoreEntitySet="V_FARMER_GETLIST">
+                <ScalarProperty Name="FARMERCODE" ColumnName="FARMERCODE" />
+                <ScalarProperty Name="FARMERNAMER" ColumnName="FARMERNAMER" />
+                <ScalarProperty Name="NLOCK" ColumnName="NLOCK" />
+                <ScalarProperty Name="NACTIVE" ColumnName="NACTIVE" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="MODIFIEDDATE" ColumnName="MODIFIEDDATE" />
+                <ScalarProperty Name="FADDRESS" ColumnName="FADDRESS" />
+                <ScalarProperty Name="FLOORSPACE" ColumnName="FLOORSPACE" />
+                <ScalarProperty Name="HENHOUSEQTY" ColumnName="HENHOUSEQTY" />
+                <ScalarProperty Name="CAPACITY" ColumnName="CAPACITY" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="AREAID" ColumnName="AREAID" />
+                <ScalarProperty Name="FARMOWNERID" ColumnName="FARMOWNERID" />
+                <ScalarProperty Name="STATUSCHICHIN" ColumnName="STATUSCHICHIN" />
+                <ScalarProperty Name="WAREHOUSEID" ColumnName="WAREHOUSEID" />
+                <ScalarProperty Name="QUARANTINE" ColumnName="QUARANTINE" />
+                <ScalarProperty Name="SEQNO" ColumnName="SEQNO" />
+                <ScalarProperty Name="REGIONID" ColumnName="REGIONID" />
+                <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+                <ScalarProperty Name="SUBAREAID" ColumnName="SUBAREAID" />
+                <ScalarProperty Name="UNITID" ColumnName="UNITID" />
+                <ScalarProperty Name="FARMOWNERNAME" ColumnName="FARMOWNERNAME" />
+                <ScalarProperty Name="AREANAME" ColumnName="AREANAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_LOCATION_GETLIST">
+            <EntityTypeMapping TypeName="Model.V_LOCATION_GETLIST">
+              <MappingFragment StoreEntitySet="V_LOCATION_GETLIST">
+                <ScalarProperty Name="LOCATIONID" ColumnName="LOCATIONID" />
+                <ScalarProperty Name="LOCATIONNAME" ColumnName="LOCATIONNAME" />
+                <ScalarProperty Name="REGION" ColumnName="REGION" />
+                <ScalarProperty Name="DIVISION" ColumnName="DIVISION" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+                <ScalarProperty Name="CONTACTNAME" ColumnName="CONTACTNAME" />
+                <ScalarProperty Name="PHONENUMBER" ColumnName="PHONENUMBER" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="PROVINCENAME" ColumnName="PROVINCENAME" />
+                <ScalarProperty Name="BIRDTYPE" ColumnName="BIRDTYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

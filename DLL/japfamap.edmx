@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelJapfaMap.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBLLOCATION">
+          <Key>
+            <PropertyRef Name="IDLOCATION" />
+          </Key>
+          <Property Name="IDLOCATION" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MLOCATION" Type="nvarchar2" MaxLength="100" />
+          <Property Name="MLAT" Type="number" Precision="38" Scale="0" />
+          <Property Name="MLONG" Type="number" Precision="38" Scale="0" />
+          <Property Name="MDIVISION" Type="nvarchar2" MaxLength="30" />
+          <Property Name="MREGION" Type="nvarchar2" MaxLength="30" />
+          <Property Name="MCONTACT" Type="nvarchar2" MaxLength="50" />
+          <Property Name="MNUMBERPHONE" Type="nvarchar2" MaxLength="15" />
+          <Property Name="MADDRESS" Type="nvarchar2" MaxLength="100" />
+          <Property Name="MSUBDIVISION" Type="nvarchar2" MaxLength="30" />
+          <Property Name="IDLOCATIONLINK" Type="nvarchar2" MaxLength="20" />
+          <Property Name="UPDATETIME" Type="date" />
+          <Property Name="UPDATEEMAIL" Type="nvarchar2" MaxLength="100" />
+          <Property Name="LOCATIONSTATUS" Type="number" Precision="38" Scale="0" />
+          <Property Name="NOTE" Type="nvarchar2" MaxLength="300" />
+          <Property Name="IDLOCATIONUPDATE" Type="number" Precision="38" Scale="0" />
+          <Property Name="ESIGNINGID" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="TBLOCATIONSTATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLOCATIONTEMP">
+          <Key>
+            <PropertyRef Name="IDLOCATION" />
+          </Key>
+          <Property Name="IDLOCATION" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MLOCATION" Type="nvarchar2" MaxLength="100" />
+          <Property Name="MLAT" Type="number" Precision="38" Scale="0" />
+          <Property Name="MLONG" Type="number" Precision="38" Scale="0" />
+          <Property Name="MDIVISION" Type="nvarchar2" MaxLength="30" />
+          <Property Name="MREGION" Type="nvarchar2" MaxLength="30" />
+          <Property Name="MCONTACT" Type="nvarchar2" MaxLength="50" />
+          <Property Name="MNUMBERPHONE" Type="nvarchar2" MaxLength="15" />
+          <Property Name="MADDRESS" Type="nvarchar2" MaxLength="100" />
+          <Property Name="MSUBDIVISION" Type="nvarchar2" MaxLength="30" />
+          <Property Name="IDLOCATIONLINK" Type="nvarchar2" MaxLength="20" />
+          <Property Name="UPDATETIME" Type="date" />
+          <Property Name="UPDATEEMAIL" Type="nvarchar2" MaxLength="100" />
+          <Property Name="LOCATIONSTATUS" Type="number" Precision="38" Scale="0" />
+          <Property Name="NOTE" Type="nvarchar2" MaxLength="300" />
+          <Property Name="IDLOCATIONUPDATE" Type="number" Precision="38" Scale="0" />
+          <Property Name="ESIGNINGID" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="TBLOCATIONUPDATING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="MLOCATION" Type="nvarchar2" MaxLength="100" />
+          <Property Name="MLAT" Type="number" Precision="38" Scale="0" />
+          <Property Name="MLONG" Type="number" Precision="38" Scale="0" />
+          <Property Name="MDIVISION" Type="nvarchar2" MaxLength="30" />
+          <Property Name="MREGION" Type="nvarchar2" MaxLength="30" />
+          <Property Name="MCONTACT" Type="nvarchar2" MaxLength="50" />
+          <Property Name="MNUMBERPHONE" Type="nvarchar2" MaxLength="15" />
+          <Property Name="MADDRESS" Type="nvarchar2" MaxLength="100" />
+          <Property Name="MSUBDIVISION" Type="nvarchar2" MaxLength="30" />
+          <Property Name="IDLOCATIONLINK" Type="nvarchar2" MaxLength="20" />
+          <Property Name="UPDATETIME" Type="date" />
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="UPDATEEMAIL" Type="nvarchar2" MaxLength="100" />
+          <Property Name="NOTE" Type="nvarchar2" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="TBLOG">
+          <Key>
+            <PropertyRef Name="LOGID" />
+          </Key>
+          <Property Name="LOGID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERID" Type="number" Precision="38" Scale="0" />
+          <Property Name="TIME" Type="date" />
+          <Property Name="TABLE_NAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="KEY_NAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="KEY_VALUE" Type="nvarchar2" MaxLength="50" />
+          <Property Name="TYPE" Type="nvarchar2" MaxLength="50" />
+          <Property Name="CONTENT" Type="clob" />
+          <Property Name="EMAIL" Type="nvarchar2" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="TBPICTUREFORLOCATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PICTURENAME" Type="nvarchar2" MaxLength="100" />
+          <Property Name="TBLOCATIONID" Type="number" Precision="38" Scale="0" />
+          <Property Name="UPDATETIME" Type="date" />
+        </EntityType>
+        <Association Name="IDLOCATIONIDLUPDATE">
+          <End Role="TBLOCATIONUPDATING" Type="Self.TBLOCATIONUPDATING" Multiplicity="0..1" />
+          <End Role="TBLLOCATION" Type="Self.TBLLOCATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLOCATIONUPDATING">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLLOCATION">
+              <PropertyRef Name="IDLOCATIONUPDATE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="IDLOCATIONSTATUS">
+          <End Role="TBLOCATIONSTATUS" Type="Self.TBLOCATIONSTATUS" Multiplicity="0..1" />
+          <End Role="TBLLOCATION" Type="Self.TBLLOCATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLOCATIONSTATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLLOCATION">
+              <PropertyRef Name="LOCATIONSTATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TBPICTURELOCATIONID">
+          <End Role="TBLLOCATION" Type="Self.TBLLOCATION" Multiplicity="0..1" />
+          <End Role="TBPICTUREFORLOCATION" Type="Self.TBPICTUREFORLOCATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLLOCATION">
+              <PropertyRef Name="IDLOCATION" />
+            </Principal>
+            <Dependent Role="TBPICTUREFORLOCATION">
+              <PropertyRef Name="TBLOCATIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelJapfaMapStoreContainer">
+          <EntitySet Name="TBLLOCATION" EntityType="Self.TBLLOCATION" Schema="JAPFAMAP" store:Type="Tables" />
+          <EntitySet Name="TBLOCATIONSTATUS" EntityType="Self.TBLOCATIONSTATUS" Schema="JAPFAMAP" store:Type="Tables" />
+          <EntitySet Name="TBLOCATIONTEMP" EntityType="Self.TBLOCATIONTEMP" Schema="JAPFAMAP" store:Type="Tables" />
+          <EntitySet Name="TBLOCATIONUPDATING" EntityType="Self.TBLOCATIONUPDATING" Schema="JAPFAMAP" store:Type="Tables" />
+          <EntitySet Name="TBLOG" EntityType="Self.TBLOG" Schema="JAPFAMAP" store:Type="Tables" />
+          <EntitySet Name="TBPICTUREFORLOCATION" EntityType="Self.TBPICTUREFORLOCATION" Schema="JAPFAMAP" store:Type="Tables" />
+          <AssociationSet Name="IDLOCATIONIDLUPDATE" Association="Self.IDLOCATIONIDLUPDATE">
+            <End Role="TBLOCATIONUPDATING" EntitySet="TBLOCATIONUPDATING" />
+            <End Role="TBLLOCATION" EntitySet="TBLLOCATION" />
+          </AssociationSet>
+          <AssociationSet Name="IDLOCATIONSTATUS" Association="Self.IDLOCATIONSTATUS">
+            <End Role="TBLOCATIONSTATUS" EntitySet="TBLOCATIONSTATUS" />
+            <End Role="TBLLOCATION" EntitySet="TBLLOCATION" />
+          </AssociationSet>
+          <AssociationSet Name="TBPICTURELOCATIONID" Association="Self.TBPICTURELOCATIONID">
+            <End Role="TBLLOCATION" EntitySet="TBLLOCATION" />
+            <End Role="TBPICTUREFORLOCATION" EntitySet="TBPICTUREFORLOCATION" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModelJapfaMap" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EntitiesMap" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBLOGs" EntityType="ModelJapfaMap.TBLOG" />
+          <EntitySet Name="TBLOCATIONSTATUS" EntityType="ModelJapfaMap.TBLOCATIONSTATU" />
+          <EntitySet Name="TBPICTUREFORLOCATIONs" EntityType="ModelJapfaMap.TBPICTUREFORLOCATION" />
+          <EntitySet Name="TBLLOCATIONs" EntityType="ModelJapfaMap.TBLLOCATION" />
+          <AssociationSet Name="IDLOCATIONSTATUS" Association="ModelJapfaMap.IDLOCATIONSTATUS">
+            <End Role="TBLOCATIONSTATU" EntitySet="TBLOCATIONSTATUS" />
+            <End Role="TBLLOCATION" EntitySet="TBLLOCATIONs" />
+          </AssociationSet>
+          <AssociationSet Name="TBPICTURELOCATIONID" Association="ModelJapfaMap.TBPICTURELOCATIONID">
+            <End Role="TBLLOCATION" EntitySet="TBLLOCATIONs" />
+            <End Role="TBPICTUREFORLOCATION" EntitySet="TBPICTUREFORLOCATIONs" />
+          </AssociationSet>
+          <EntitySet Name="TBLOCATIONUPDATINGs" EntityType="ModelJapfaMap.TBLOCATIONUPDATING" />
+          <AssociationSet Name="IDLOCATIONIDLUPDATE" Association="ModelJapfaMap.IDLOCATIONIDLUPDATE">
+            <End Role="TBLOCATIONUPDATING" EntitySet="TBLOCATIONUPDATINGs" />
+            <End Role="TBLLOCATION" EntitySet="TBLLOCATIONs" />
+          </AssociationSet>
+          <EntitySet Name="TBLOCATIONTEMPs" EntityType="ModelJapfaMap.TBLOCATIONTEMP" />
+          </EntityContainer>
+        <EntityType Name="TBLOG">
+          <Key>
+            <PropertyRef Name="LOGID" />
+          </Key>
+          <Property Name="LOGID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USERID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="TIME" Type="DateTime" />
+          <Property Name="TABLE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KEY_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KEY_VALUE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CONTENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBLOCATIONSTATU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBLLOCATIONs" Relationship="ModelJapfaMap.IDLOCATIONSTATUS" FromRole="TBLOCATIONSTATU" ToRole="TBLLOCATION" />
+        </EntityType>
+        <EntityType Name="TBPICTUREFORLOCATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PICTURENAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TBLOCATIONID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="UPDATETIME" Type="DateTime" />
+          <NavigationProperty Name="TBLLOCATION" Relationship="ModelJapfaMap.TBPICTURELOCATIONID" FromRole="TBPICTUREFORLOCATION" ToRole="TBLLOCATION" />
+        </EntityType>
+        <EntityType Name="TBLLOCATION">
+          <Key>
+            <PropertyRef Name="IDLOCATION" />
+          </Key>
+          <Property Name="IDLOCATION" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="MLOCATION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MLAT" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="MLONG" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="MDIVISION" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="MREGION" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="MCONTACT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MNUMBERPHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="MADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MSUBDIVISION" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="IDLOCATIONLINK" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UPDATETIME" Type="DateTime" />
+          <Property Name="UPDATEEMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LOCATIONSTATUS" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="NOTE" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="IDLOCATIONUPDATE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ESIGNINGID" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="TBLOCATIONSTATU" Relationship="ModelJapfaMap.IDLOCATIONSTATUS" FromRole="TBLLOCATION" ToRole="TBLOCATIONSTATU" />
+          <NavigationProperty Name="TBPICTUREFORLOCATIONs" Relationship="ModelJapfaMap.TBPICTURELOCATIONID" FromRole="TBLLOCATION" ToRole="TBPICTUREFORLOCATION" />
+          <NavigationProperty Name="TBLOCATIONUPDATING" Relationship="ModelJapfaMap.IDLOCATIONIDLUPDATE" FromRole="TBLLOCATION" ToRole="TBLOCATIONUPDATING" />
+        </EntityType>
+        <Association Name="IDLOCATIONSTATUS">
+          <End Type="ModelJapfaMap.TBLOCATIONSTATU" Role="TBLOCATIONSTATU" Multiplicity="0..1" />
+          <End Type="ModelJapfaMap.TBLLOCATION" Role="TBLLOCATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLOCATIONSTATU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLLOCATION">
+              <PropertyRef Name="LOCATIONSTATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TBPICTURELOCATIONID">
+          <End Type="ModelJapfaMap.TBLLOCATION" Role="TBLLOCATION" Multiplicity="0..1" />
+          <End Type="ModelJapfaMap.TBPICTUREFORLOCATION" Role="TBPICTUREFORLOCATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLLOCATION">
+              <PropertyRef Name="IDLOCATION" />
+            </Principal>
+            <Dependent Role="TBPICTUREFORLOCATION">
+              <PropertyRef Name="TBLOCATIONID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TBLOCATIONUPDATING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="MLOCATION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MLAT" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="MLONG" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="MDIVISION" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="MREGION" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="MCONTACT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MNUMBERPHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="MADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MSUBDIVISION" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="IDLOCATIONLINK" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UPDATETIME" Type="DateTime" />
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="UPDATEEMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NOTE" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBLLOCATIONs" Relationship="ModelJapfaMap.IDLOCATIONIDLUPDATE" FromRole="TBLOCATIONUPDATING" ToRole="TBLLOCATION" />
+        </EntityType>
+        <Association Name="IDLOCATIONIDLUPDATE">
+          <End Type="ModelJapfaMap.TBLOCATIONUPDATING" Role="TBLOCATIONUPDATING" Multiplicity="0..1" />
+          <End Type="ModelJapfaMap.TBLLOCATION" Role="TBLLOCATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLOCATIONUPDATING">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLLOCATION">
+              <PropertyRef Name="IDLOCATIONUPDATE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TBLOCATIONTEMP">
+          <Key>
+            <PropertyRef Name="IDLOCATION" />
+          </Key>
+          <Property Name="IDLOCATION" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="MLOCATION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MLAT" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="MLONG" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="MDIVISION" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="MREGION" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="MCONTACT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MNUMBERPHONE" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="MADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MSUBDIVISION" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="IDLOCATIONLINK" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UPDATETIME" Type="DateTime" />
+          <Property Name="UPDATEEMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LOCATIONSTATUS" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="NOTE" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="IDLOCATIONUPDATE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ESIGNINGID" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelJapfaMapStoreContainer" CdmEntityContainer="EntitiesMap">
+          <EntitySetMapping Name="TBLOGs">
+            <EntityTypeMapping TypeName="ModelJapfaMap.TBLOG">
+              <MappingFragment StoreEntitySet="TBLOG">
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="CONTENT" ColumnName="CONTENT" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="KEY_VALUE" ColumnName="KEY_VALUE" />
+                <ScalarProperty Name="KEY_NAME" ColumnName="KEY_NAME" />
+                <ScalarProperty Name="TABLE_NAME" ColumnName="TABLE_NAME" />
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="LOGID" ColumnName="LOGID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLOCATIONSTATUS">
+            <EntityTypeMapping TypeName="ModelJapfaMap.TBLOCATIONSTATU">
+              <MappingFragment StoreEntitySet="TBLOCATIONSTATUS">
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBPICTUREFORLOCATIONs">
+            <EntityTypeMapping TypeName="ModelJapfaMap.TBPICTUREFORLOCATION">
+              <MappingFragment StoreEntitySet="TBPICTUREFORLOCATION">
+                <ScalarProperty Name="UPDATETIME" ColumnName="UPDATETIME" />
+                <ScalarProperty Name="TBLOCATIONID" ColumnName="TBLOCATIONID" />
+                <ScalarProperty Name="PICTURENAME" ColumnName="PICTURENAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLLOCATIONs">
+            <EntityTypeMapping TypeName="ModelJapfaMap.TBLLOCATION">
+              <MappingFragment StoreEntitySet="TBLLOCATION">
+                <ScalarProperty Name="ESIGNINGID" ColumnName="ESIGNINGID" />
+                <ScalarProperty Name="IDLOCATIONUPDATE" ColumnName="IDLOCATIONUPDATE" />
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+                <ScalarProperty Name="LOCATIONSTATUS" ColumnName="LOCATIONSTATUS" />
+                <ScalarProperty Name="UPDATEEMAIL" ColumnName="UPDATEEMAIL" />
+                <ScalarProperty Name="UPDATETIME" ColumnName="UPDATETIME" />
+                <ScalarProperty Name="IDLOCATIONLINK" ColumnName="IDLOCATIONLINK" />
+                <ScalarProperty Name="MSUBDIVISION" ColumnName="MSUBDIVISION" />
+                <ScalarProperty Name="MADDRESS" ColumnName="MADDRESS" />
+                <ScalarProperty Name="MNUMBERPHONE" ColumnName="MNUMBERPHONE" />
+                <ScalarProperty Name="MCONTACT" ColumnName="MCONTACT" />
+                <ScalarProperty Name="MREGION" ColumnName="MREGION" />
+                <ScalarProperty Name="MDIVISION" ColumnName="MDIVISION" />
+                <ScalarProperty Name="MLONG" ColumnName="MLONG" />
+                <ScalarProperty Name="MLAT" ColumnName="MLAT" />
+                <ScalarProperty Name="MLOCATION" ColumnName="MLOCATION" />
+                <ScalarProperty Name="IDLOCATION" ColumnName="IDLOCATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLOCATIONUPDATINGs">
+            <EntityTypeMapping TypeName="ModelJapfaMap.TBLOCATIONUPDATING">
+              <MappingFragment StoreEntitySet="TBLOCATIONUPDATING">
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+                <ScalarProperty Name="UPDATEEMAIL" ColumnName="UPDATEEMAIL" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UPDATETIME" ColumnName="UPDATETIME" />
+                <ScalarProperty Name="IDLOCATIONLINK" ColumnName="IDLOCATIONLINK" />
+                <ScalarProperty Name="MSUBDIVISION" ColumnName="MSUBDIVISION" />
+                <ScalarProperty Name="MADDRESS" ColumnName="MADDRESS" />
+                <ScalarProperty Name="MNUMBERPHONE" ColumnName="MNUMBERPHONE" />
+                <ScalarProperty Name="MCONTACT" ColumnName="MCONTACT" />
+                <ScalarProperty Name="MREGION" ColumnName="MREGION" />
+                <ScalarProperty Name="MDIVISION" ColumnName="MDIVISION" />
+                <ScalarProperty Name="MLONG" ColumnName="MLONG" />
+                <ScalarProperty Name="MLAT" ColumnName="MLAT" />
+                <ScalarProperty Name="MLOCATION" ColumnName="MLOCATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLOCATIONTEMPs">
+            <EntityTypeMapping TypeName="ModelJapfaMap.TBLOCATIONTEMP">
+              <MappingFragment StoreEntitySet="TBLOCATIONTEMP">
+                <ScalarProperty Name="ESIGNINGID" ColumnName="ESIGNINGID" />
+                <ScalarProperty Name="IDLOCATIONUPDATE" ColumnName="IDLOCATIONUPDATE" />
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+                <ScalarProperty Name="LOCATIONSTATUS" ColumnName="LOCATIONSTATUS" />
+                <ScalarProperty Name="UPDATEEMAIL" ColumnName="UPDATEEMAIL" />
+                <ScalarProperty Name="UPDATETIME" ColumnName="UPDATETIME" />
+                <ScalarProperty Name="IDLOCATIONLINK" ColumnName="IDLOCATIONLINK" />
+                <ScalarProperty Name="MSUBDIVISION" ColumnName="MSUBDIVISION" />
+                <ScalarProperty Name="MADDRESS" ColumnName="MADDRESS" />
+                <ScalarProperty Name="MNUMBERPHONE" ColumnName="MNUMBERPHONE" />
+                <ScalarProperty Name="MCONTACT" ColumnName="MCONTACT" />
+                <ScalarProperty Name="MREGION" ColumnName="MREGION" />
+                <ScalarProperty Name="MDIVISION" ColumnName="MDIVISION" />
+                <ScalarProperty Name="MLONG" ColumnName="MLONG" />
+                <ScalarProperty Name="MLAT" ColumnName="MLAT" />
+                <ScalarProperty Name="MLOCATION" ColumnName="MLOCATION" />
+                <ScalarProperty Name="IDLOCATION" ColumnName="IDLOCATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

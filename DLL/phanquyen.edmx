@@ -1,0 +1,1897 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="JAPPLICATION">
+          <Key>
+            <PropertyRef Name="APPID" />
+          </Key>
+          <Property Name="APPID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="APPNAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="STATUS" Type="nvarchar2" MaxLength="50" />
+          <Property Name="USERCREATE" Type="number" Precision="38" Scale="0" />
+          <Property Name="TIME" Type="date" />
+          <Property Name="CLIENTID" Type="nvarchar2" MaxLength="200" Nullable="false" />
+          <Property Name="MESSAGE" Type="nvarchar2" MaxLength="500" />
+          <Property Name="VERSIONANDROID" Type="nvarchar2" MaxLength="5" Nullable="false" />
+          <Property Name="VERSIONIOS" Type="nvarchar2" MaxLength="5" />
+          <Property Name="VERSIONWEB" Type="nvarchar2" MaxLength="5" />
+          <Property Name="VERSIONDESKTOP" Type="nvarchar2" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="MTAPPBYUSER">
+          <Key>
+            <PropertyRef Name="APPID" />
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="APPID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERID" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="USERCREATE" Type="nvarchar2" MaxLength="50" />
+          <Property Name="TIME" Type="date" />
+          <Property Name="ROLE" Type="nvarchar2" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="MTAPPLICATION">
+          <Key>
+            <PropertyRef Name="APPID" />
+          </Key>
+          <Property Name="APPID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="APPNAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="STATUS" Type="nvarchar2" MaxLength="50" />
+          <Property Name="USERCREATE" Type="nvarchar2" MaxLength="50" />
+          <Property Name="TIME" Type="date" />
+          <Property Name="CLIENTID" Type="nvarchar2" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="MTGROUPBYMENU">
+          <Key>
+            <PropertyRef Name="GROUPMENUID" />
+            <PropertyRef Name="MENUID" />
+            <PropertyRef Name="APPID" />
+          </Key>
+          <Property Name="GROUPMENUID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MENUID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="APPID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERCREATE" Type="nvarchar2" MaxLength="50" />
+          <Property Name="TIME" Type="date" />
+        </EntityType>
+        <EntityType Name="MTGROUPBYUSER">
+          <Key>
+            <PropertyRef Name="GROUPUSERID" />
+            <PropertyRef Name="APPID" />
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="GROUPUSERID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="APPID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERID" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="USERCREATE" Type="nvarchar2" MaxLength="50" />
+          <Property Name="TIME" Type="date" />
+        </EntityType>
+        <EntityType Name="MTGROUPMENU">
+          <Key>
+            <PropertyRef Name="GROUPMENUID" />
+            <PropertyRef Name="APPID" />
+          </Key>
+          <Property Name="GROUPMENUID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="GROUPMENUNAME" Type="nvarchar2" MaxLength="100" />
+          <Property Name="STATUS" Type="nvarchar2" MaxLength="1" />
+          <Property Name="APPID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERCREATE" Type="nvarchar2" MaxLength="50" />
+          <Property Name="TIME" Type="date" />
+          <Property Name="GROUPMAIN" Type="nvarchar2" MaxLength="1" />
+          <Property Name="ICON" Type="nvarchar2" MaxLength="50" />
+          <Property Name="LINK" Type="nvarchar2" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="MTGROUPMENUBYSUBMENU">
+          <Key>
+            <PropertyRef Name="MENUID" />
+            <PropertyRef Name="SUBMENUID" />
+            <PropertyRef Name="APPID" />
+            <PropertyRef Name="GROUPID" />
+          </Key>
+          <Property Name="MENUID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SUBMENUID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="APPID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="GROUPID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERCREATE" Type="nvarchar2" MaxLength="50" />
+          <Property Name="TIME" Type="date" />
+        </EntityType>
+        <EntityType Name="MTGROUPUSER">
+          <Key>
+            <PropertyRef Name="GROUPUSERID" />
+            <PropertyRef Name="APPID" />
+          </Key>
+          <Property Name="GROUPUSERID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="GROUPUSERNAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="APPID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STATUS" Type="nvarchar2" MaxLength="1" />
+          <Property Name="USERCREATE" Type="nvarchar2" MaxLength="50" />
+          <Property Name="TIME" Type="date" />
+        </EntityType>
+        <EntityType Name="MTLOG">
+          <Key>
+            <PropertyRef Name="LOGID" />
+          </Key>
+          <Property Name="LOGID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERID" Type="nvarchar2" MaxLength="50" />
+          <Property Name="TIME" Type="date" />
+          <Property Name="TABLE_NAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="KEY_NAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="KEY_VALUE" Type="nvarchar2" MaxLength="50" />
+          <Property Name="CONTENT" Type="nvarchar2" MaxLength="2000" />
+          <Property Name="TYPE" Type="nvarchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MTMENU">
+          <Key>
+            <PropertyRef Name="MENUID" />
+            <PropertyRef Name="APPID" />
+          </Key>
+          <Property Name="MENUID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MENUNAME" Type="nvarchar2" MaxLength="100" />
+          <Property Name="STATUS" Type="nvarchar2" MaxLength="5" />
+          <Property Name="APPID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERCREATE" Type="nvarchar2" MaxLength="50" />
+          <Property Name="TIME" Type="date" />
+          <Property Name="LINK" Type="nvarchar2" MaxLength="500" />
+          <Property Name="ICON" Type="nvarchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MTSUBMENU">
+          <Key>
+            <PropertyRef Name="SUBMENUID" />
+            <PropertyRef Name="APPID" />
+            <PropertyRef Name="MENUID" />
+          </Key>
+          <Property Name="SUBMENUID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SUBMENUNAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="STATUS" Type="nvarchar2" MaxLength="1" />
+          <Property Name="APPID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERCREATE" Type="nvarchar2" MaxLength="49" />
+          <Property Name="TIME" Type="date" />
+          <Property Name="MENUID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ICON" Type="nvarchar2" MaxLength="50" />
+          <Property Name="LINK" Type="nvarchar2" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="MTUSER">
+          <Key>
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="USERID" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="USERPASS" Type="nvarchar2" MaxLength="50" />
+          <Property Name="ACTIVE" Type="nvarchar2" MaxLength="1" />
+          <Property Name="FULLNAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="50" />
+          <Property Name="LOGINBY" Type="varchar2" MaxLength="1" />
+          <Property Name="EMPNO" Type="varchar2" MaxLength="6" />
+          <Property Name="SAPID" Type="nvarchar2" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="MTUSERBYGROUPMENU">
+          <Key>
+            <PropertyRef Name="GROUPMENUID" />
+            <PropertyRef Name="APPID" />
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="GROUPMENUID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="APPID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERID" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="USERCREATE" Type="nvarchar2" MaxLength="50" />
+          <Property Name="TIME" Type="date" />
+        </EntityType>
+        <EntityType Name="MTUSERBYGROUPUSER">
+          <Key>
+            <PropertyRef Name="GROUPUSERID" />
+            <PropertyRef Name="APPID" />
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="GROUPUSERID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="APPID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERID" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="USERCREATE" Type="nvarchar2" MaxLength="50" />
+          <Property Name="TIME" Type="date" />
+        </EntityType>
+        <EntityType Name="MTUSERBYMENU">
+          <Key>
+            <PropertyRef Name="MENUID" />
+            <PropertyRef Name="APPID" />
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="MENUID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="APPID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERID" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="USERCREATE" Type="nvarchar2" MaxLength="50" />
+          <Property Name="TIME" Type="date" />
+        </EntityType>
+        <EntityType Name="MTUSERBYSUBMENU">
+          <Key>
+            <PropertyRef Name="MENUID" />
+            <PropertyRef Name="SUBMENUID" />
+            <PropertyRef Name="APPID" />
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="MENUID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SUBMENUID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="APPID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERID" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="USERCREATE" Type="nvarchar2" MaxLength="50" />
+          <Property Name="TIME" Type="date" />
+        </EntityType>
+        <EntityType Name="MTUSERBYSUBUSER">
+          <Key>
+            <PropertyRef Name="SUBUSERID" />
+            <PropertyRef Name="APPID" />
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="SUBUSERID" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="APPID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERID" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="USERCREATE" Type="nvarchar2" MaxLength="50" />
+          <Property Name="TIME" Type="date" />
+        </EntityType>
+        <Association Name="BYSUBMENUMENUID">
+          <End Role="MTMENU" Type="Self.MTMENU" Multiplicity="1" />
+          <End Role="MTUSERBYSUBMENU" Type="Self.MTUSERBYSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTUSERBYSUBMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BYSUBMENUSUBMENUID">
+          <End Role="MTSUBMENU" Type="Self.MTSUBMENU" Multiplicity="1" />
+          <End Role="MTUSERBYSUBMENU" Type="Self.MTUSERBYSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTSUBMENU">
+              <PropertyRef Name="SUBMENUID" />
+              <PropertyRef Name="APPID" />
+              <PropertyRef Name="MENUID" />
+            </Principal>
+            <Dependent Role="MTUSERBYSUBMENU">
+              <PropertyRef Name="SUBMENUID" />
+              <PropertyRef Name="APPID" />
+              <PropertyRef Name="MENUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTAPPBYUSERAPPID">
+          <End Role="MTAPPLICATION" Type="Self.MTAPPLICATION" Multiplicity="1" />
+          <End Role="MTAPPBYUSER" Type="Self.MTAPPBYUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTAPPBYUSER">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTAPPBYUSERUSERID">
+          <End Role="MTUSER" Type="Self.MTUSER" Multiplicity="1" />
+          <End Role="MTAPPBYUSER" Type="Self.MTAPPBYUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTUSER">
+              <PropertyRef Name="USERID" />
+            </Principal>
+            <Dependent Role="MTAPPBYUSER">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTGROUPBYMENUAPPID">
+          <End Role="MTAPPLICATION" Type="Self.MTAPPLICATION" Multiplicity="1" />
+          <End Role="MTGROUPBYMENU" Type="Self.MTGROUPBYMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPBYMENU">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTGROUPBYMENUGROUPMENUID">
+          <End Role="MTGROUPMENU" Type="Self.MTGROUPMENU" Multiplicity="1" />
+          <End Role="MTGROUPBYMENU" Type="Self.MTGROUPBYMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTGROUPMENU">
+              <PropertyRef Name="GROUPMENUID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPBYMENU">
+              <PropertyRef Name="GROUPMENUID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTGROUPBYMENUMENUID">
+          <End Role="MTMENU" Type="Self.MTMENU" Multiplicity="1" />
+          <End Role="MTGROUPBYMENU" Type="Self.MTGROUPBYMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPBYMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTGROUPBYUSERAPPID">
+          <End Role="MTAPPLICATION" Type="Self.MTAPPLICATION" Multiplicity="1" />
+          <End Role="MTGROUPBYUSER" Type="Self.MTGROUPBYUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPBYUSER">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTGROUPBYUSERGROUPUSERID">
+          <End Role="MTGROUPUSER" Type="Self.MTGROUPUSER" Multiplicity="1" />
+          <End Role="MTGROUPBYUSER" Type="Self.MTGROUPBYUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTGROUPUSER">
+              <PropertyRef Name="GROUPUSERID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPBYUSER">
+              <PropertyRef Name="GROUPUSERID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTGROUPBYUSERUSERID">
+          <End Role="MTUSER" Type="Self.MTUSER" Multiplicity="1" />
+          <End Role="MTGROUPBYUSER" Type="Self.MTGROUPBYUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTUSER">
+              <PropertyRef Name="USERID" />
+            </Principal>
+            <Dependent Role="MTGROUPBYUSER">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTGROUPMENUBYSUBMENUAPPID">
+          <End Role="MTAPPLICATION" Type="Self.MTAPPLICATION" Multiplicity="1" />
+          <End Role="MTGROUPMENUBYSUBMENU" Type="Self.MTGROUPMENUBYSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPMENUBYSUBMENU">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTGROUPMENUGROUPMENUAPPID">
+          <End Role="MTAPPLICATION" Type="Self.MTAPPLICATION" Multiplicity="1" />
+          <End Role="MTGROUPMENU" Type="Self.MTGROUPMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPMENU">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTGROUPUSERGROUPUSERAPPID">
+          <End Role="MTAPPLICATION" Type="Self.MTAPPLICATION" Multiplicity="1" />
+          <End Role="MTGROUPUSER" Type="Self.MTGROUPUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPUSER">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTMENUMENUAPPID">
+          <End Role="MTAPPLICATION" Type="Self.MTAPPLICATION" Multiplicity="1" />
+          <End Role="MTMENU" Type="Self.MTMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTMENU">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTSUBMENUAPPID">
+          <End Role="MTAPPLICATION" Type="Self.MTAPPLICATION" Multiplicity="1" />
+          <End Role="MTSUBMENU" Type="Self.MTSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTSUBMENU">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTSUBMENUMENUID">
+          <End Role="MTMENU" Type="Self.MTMENU" Multiplicity="1" />
+          <End Role="MTSUBMENU" Type="Self.MTSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTSUBMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYGROUPMENUAPPID">
+          <End Role="MTAPPLICATION" Type="Self.MTAPPLICATION" Multiplicity="1" />
+          <End Role="MTUSERBYGROUPMENU" Type="Self.MTUSERBYGROUPMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTUSERBYGROUPMENU">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYGROUPMENUGROUPMENUID">
+          <End Role="MTGROUPMENU" Type="Self.MTGROUPMENU" Multiplicity="1" />
+          <End Role="MTUSERBYGROUPMENU" Type="Self.MTUSERBYGROUPMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTGROUPMENU">
+              <PropertyRef Name="GROUPMENUID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTUSERBYGROUPMENU">
+              <PropertyRef Name="GROUPMENUID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYGROUPMENUUSERID">
+          <End Role="MTUSER" Type="Self.MTUSER" Multiplicity="1" />
+          <End Role="MTUSERBYGROUPMENU" Type="Self.MTUSERBYGROUPMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTUSER">
+              <PropertyRef Name="USERID" />
+            </Principal>
+            <Dependent Role="MTUSERBYGROUPMENU">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYGROUPUSERAPPID">
+          <End Role="MTAPPLICATION" Type="Self.MTAPPLICATION" Multiplicity="1" />
+          <End Role="MTUSERBYGROUPUSER" Type="Self.MTUSERBYGROUPUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTUSERBYGROUPUSER">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYMENUAPPID">
+          <End Role="MTAPPLICATION" Type="Self.MTAPPLICATION" Multiplicity="1" />
+          <End Role="MTUSERBYMENU" Type="Self.MTUSERBYMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTUSERBYMENU">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYMENUMENUID">
+          <End Role="MTMENU" Type="Self.MTMENU" Multiplicity="1" />
+          <End Role="MTUSERBYMENU" Type="Self.MTUSERBYMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTUSERBYMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYMENUUSERID">
+          <End Role="MTUSER" Type="Self.MTUSER" Multiplicity="1" />
+          <End Role="MTUSERBYMENU" Type="Self.MTUSERBYMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTUSER">
+              <PropertyRef Name="USERID" />
+            </Principal>
+            <Dependent Role="MTUSERBYMENU">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYSUBMENUAPPID">
+          <End Role="MTAPPLICATION" Type="Self.MTAPPLICATION" Multiplicity="1" />
+          <End Role="MTUSERBYSUBMENU" Type="Self.MTUSERBYSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTUSERBYSUBMENU">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYSUBMENUUSERID">
+          <End Role="MTUSER" Type="Self.MTUSER" Multiplicity="1" />
+          <End Role="MTUSERBYSUBMENU" Type="Self.MTUSERBYSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTUSER">
+              <PropertyRef Name="USERID" />
+            </Principal>
+            <Dependent Role="MTUSERBYSUBMENU">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYSUBUSERAPPID">
+          <End Role="MTAPPLICATION" Type="Self.MTAPPLICATION" Multiplicity="1" />
+          <End Role="MTUSERBYSUBUSER" Type="Self.MTUSERBYSUBUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTUSERBYSUBUSER">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYSUBUSERSUBUSERID">
+          <End Role="MTUSER" Type="Self.MTUSER" Multiplicity="1" />
+          <End Role="MTUSERBYSUBUSER" Type="Self.MTUSERBYSUBUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTUSER">
+              <PropertyRef Name="USERID" />
+            </Principal>
+            <Dependent Role="MTUSERBYSUBUSER">
+              <PropertyRef Name="SUBUSERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYSUBUSERUSERID">
+          <End Role="MTUSER" Type="Self.MTUSER" Multiplicity="1" />
+          <End Role="MTUSERBYSUBUSER" Type="Self.MTUSERBYSUBUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTUSER">
+              <PropertyRef Name="USERID" />
+            </Principal>
+            <Dependent Role="MTUSERBYSUBUSER">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SERBYGROUPUSERGROUPUSERID">
+          <End Role="MTGROUPUSER" Type="Self.MTGROUPUSER" Multiplicity="1" />
+          <End Role="MTUSERBYGROUPUSER" Type="Self.MTUSERBYGROUPUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTGROUPUSER">
+              <PropertyRef Name="GROUPUSERID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTUSERBYGROUPUSER">
+              <PropertyRef Name="GROUPUSERID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SUBMENUGROUPMENUID">
+          <End Role="MTGROUPMENU" Type="Self.MTGROUPMENU" Multiplicity="1" />
+          <End Role="MTGROUPMENUBYSUBMENU" Type="Self.MTGROUPMENUBYSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTGROUPMENU">
+              <PropertyRef Name="GROUPMENUID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPMENUBYSUBMENU">
+              <PropertyRef Name="GROUPID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SUWBMENUSUBMENUID">
+          <End Role="MTSUBMENU" Type="Self.MTSUBMENU" Multiplicity="1" />
+          <End Role="MTGROUPMENUBYSUBMENU" Type="Self.MTGROUPMENUBYSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTSUBMENU">
+              <PropertyRef Name="SUBMENUID" />
+              <PropertyRef Name="APPID" />
+              <PropertyRef Name="MENUID" />
+            </Principal>
+            <Dependent Role="MTGROUPMENUBYSUBMENU">
+              <PropertyRef Name="SUBMENUID" />
+              <PropertyRef Name="APPID" />
+              <PropertyRef Name="MENUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UBYSDUBMENUMENUID">
+          <End Role="MTMENU" Type="Self.MTMENU" Multiplicity="1" />
+          <End Role="MTGROUPMENUBYSUBMENU" Type="Self.MTGROUPMENUBYSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPMENUBYSUBMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="JAPPLICATION" EntityType="Self.JAPPLICATION" Schema="MASTERDB" store:Type="Tables" />
+          <EntitySet Name="MTAPPBYUSER" EntityType="Self.MTAPPBYUSER" Schema="MASTERDB" store:Type="Tables" />
+          <EntitySet Name="MTAPPLICATION" EntityType="Self.MTAPPLICATION" Schema="MASTERDB" store:Type="Tables" />
+          <EntitySet Name="MTGROUPBYMENU" EntityType="Self.MTGROUPBYMENU" Schema="MASTERDB" store:Type="Tables" />
+          <EntitySet Name="MTGROUPBYUSER" EntityType="Self.MTGROUPBYUSER" Schema="MASTERDB" store:Type="Tables" />
+          <EntitySet Name="MTGROUPMENU" EntityType="Self.MTGROUPMENU" Schema="MASTERDB" store:Type="Tables" />
+          <EntitySet Name="MTGROUPMENUBYSUBMENU" EntityType="Self.MTGROUPMENUBYSUBMENU" Schema="MASTERDB" store:Type="Tables" />
+          <EntitySet Name="MTGROUPUSER" EntityType="Self.MTGROUPUSER" Schema="MASTERDB" store:Type="Tables" />
+          <EntitySet Name="MTLOG" EntityType="Self.MTLOG" Schema="MASTERDB" store:Type="Tables" />
+          <EntitySet Name="MTMENU" EntityType="Self.MTMENU" Schema="MASTERDB" store:Type="Tables" />
+          <EntitySet Name="MTSUBMENU" EntityType="Self.MTSUBMENU" Schema="MASTERDB" store:Type="Tables" />
+          <EntitySet Name="MTUSER" EntityType="Self.MTUSER" Schema="MASTERDB" store:Type="Tables" />
+          <EntitySet Name="MTUSERBYGROUPMENU" EntityType="Self.MTUSERBYGROUPMENU" Schema="MASTERDB" store:Type="Tables" />
+          <EntitySet Name="MTUSERBYGROUPUSER" EntityType="Self.MTUSERBYGROUPUSER" Schema="MASTERDB" store:Type="Tables" />
+          <EntitySet Name="MTUSERBYMENU" EntityType="Self.MTUSERBYMENU" Schema="MASTERDB" store:Type="Tables" />
+          <EntitySet Name="MTUSERBYSUBMENU" EntityType="Self.MTUSERBYSUBMENU" Schema="MASTERDB" store:Type="Tables" />
+          <EntitySet Name="MTUSERBYSUBUSER" EntityType="Self.MTUSERBYSUBUSER" Schema="MASTERDB" store:Type="Tables" />
+          <AssociationSet Name="BYSUBMENUMENUID" Association="Self.BYSUBMENUMENUID">
+            <End Role="MTMENU" EntitySet="MTMENU" />
+            <End Role="MTUSERBYSUBMENU" EntitySet="MTUSERBYSUBMENU" />
+          </AssociationSet>
+          <AssociationSet Name="BYSUBMENUSUBMENUID" Association="Self.BYSUBMENUSUBMENUID">
+            <End Role="MTSUBMENU" EntitySet="MTSUBMENU" />
+            <End Role="MTUSERBYSUBMENU" EntitySet="MTUSERBYSUBMENU" />
+          </AssociationSet>
+          <AssociationSet Name="MTAPPBYUSERAPPID" Association="Self.MTAPPBYUSERAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATION" />
+            <End Role="MTAPPBYUSER" EntitySet="MTAPPBYUSER" />
+          </AssociationSet>
+          <AssociationSet Name="MTAPPBYUSERUSERID" Association="Self.MTAPPBYUSERUSERID">
+            <End Role="MTUSER" EntitySet="MTUSER" />
+            <End Role="MTAPPBYUSER" EntitySet="MTAPPBYUSER" />
+          </AssociationSet>
+          <AssociationSet Name="MTGROUPBYMENUAPPID" Association="Self.MTGROUPBYMENUAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATION" />
+            <End Role="MTGROUPBYMENU" EntitySet="MTGROUPBYMENU" />
+          </AssociationSet>
+          <AssociationSet Name="MTGROUPBYMENUGROUPMENUID" Association="Self.MTGROUPBYMENUGROUPMENUID">
+            <End Role="MTGROUPMENU" EntitySet="MTGROUPMENU" />
+            <End Role="MTGROUPBYMENU" EntitySet="MTGROUPBYMENU" />
+          </AssociationSet>
+          <AssociationSet Name="MTGROUPBYMENUMENUID" Association="Self.MTGROUPBYMENUMENUID">
+            <End Role="MTMENU" EntitySet="MTMENU" />
+            <End Role="MTGROUPBYMENU" EntitySet="MTGROUPBYMENU" />
+          </AssociationSet>
+          <AssociationSet Name="MTGROUPBYUSERAPPID" Association="Self.MTGROUPBYUSERAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATION" />
+            <End Role="MTGROUPBYUSER" EntitySet="MTGROUPBYUSER" />
+          </AssociationSet>
+          <AssociationSet Name="MTGROUPBYUSERGROUPUSERID" Association="Self.MTGROUPBYUSERGROUPUSERID">
+            <End Role="MTGROUPUSER" EntitySet="MTGROUPUSER" />
+            <End Role="MTGROUPBYUSER" EntitySet="MTGROUPBYUSER" />
+          </AssociationSet>
+          <AssociationSet Name="MTGROUPBYUSERUSERID" Association="Self.MTGROUPBYUSERUSERID">
+            <End Role="MTUSER" EntitySet="MTUSER" />
+            <End Role="MTGROUPBYUSER" EntitySet="MTGROUPBYUSER" />
+          </AssociationSet>
+          <AssociationSet Name="MTGROUPMENUBYSUBMENUAPPID" Association="Self.MTGROUPMENUBYSUBMENUAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATION" />
+            <End Role="MTGROUPMENUBYSUBMENU" EntitySet="MTGROUPMENUBYSUBMENU" />
+          </AssociationSet>
+          <AssociationSet Name="MTGROUPMENUGROUPMENUAPPID" Association="Self.MTGROUPMENUGROUPMENUAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATION" />
+            <End Role="MTGROUPMENU" EntitySet="MTGROUPMENU" />
+          </AssociationSet>
+          <AssociationSet Name="MTGROUPUSERGROUPUSERAPPID" Association="Self.MTGROUPUSERGROUPUSERAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATION" />
+            <End Role="MTGROUPUSER" EntitySet="MTGROUPUSER" />
+          </AssociationSet>
+          <AssociationSet Name="MTMENUMENUAPPID" Association="Self.MTMENUMENUAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATION" />
+            <End Role="MTMENU" EntitySet="MTMENU" />
+          </AssociationSet>
+          <AssociationSet Name="MTSUBMENUAPPID" Association="Self.MTSUBMENUAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATION" />
+            <End Role="MTSUBMENU" EntitySet="MTSUBMENU" />
+          </AssociationSet>
+          <AssociationSet Name="MTSUBMENUMENUID" Association="Self.MTSUBMENUMENUID">
+            <End Role="MTMENU" EntitySet="MTMENU" />
+            <End Role="MTSUBMENU" EntitySet="MTSUBMENU" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYGROUPMENUAPPID" Association="Self.MTUSERBYGROUPMENUAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATION" />
+            <End Role="MTUSERBYGROUPMENU" EntitySet="MTUSERBYGROUPMENU" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYGROUPMENUGROUPMENUID" Association="Self.MTUSERBYGROUPMENUGROUPMENUID">
+            <End Role="MTGROUPMENU" EntitySet="MTGROUPMENU" />
+            <End Role="MTUSERBYGROUPMENU" EntitySet="MTUSERBYGROUPMENU" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYGROUPMENUUSERID" Association="Self.MTUSERBYGROUPMENUUSERID">
+            <End Role="MTUSER" EntitySet="MTUSER" />
+            <End Role="MTUSERBYGROUPMENU" EntitySet="MTUSERBYGROUPMENU" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYGROUPUSERAPPID" Association="Self.MTUSERBYGROUPUSERAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATION" />
+            <End Role="MTUSERBYGROUPUSER" EntitySet="MTUSERBYGROUPUSER" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYMENUAPPID" Association="Self.MTUSERBYMENUAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATION" />
+            <End Role="MTUSERBYMENU" EntitySet="MTUSERBYMENU" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYMENUMENUID" Association="Self.MTUSERBYMENUMENUID">
+            <End Role="MTMENU" EntitySet="MTMENU" />
+            <End Role="MTUSERBYMENU" EntitySet="MTUSERBYMENU" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYMENUUSERID" Association="Self.MTUSERBYMENUUSERID">
+            <End Role="MTUSER" EntitySet="MTUSER" />
+            <End Role="MTUSERBYMENU" EntitySet="MTUSERBYMENU" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYSUBMENUAPPID" Association="Self.MTUSERBYSUBMENUAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATION" />
+            <End Role="MTUSERBYSUBMENU" EntitySet="MTUSERBYSUBMENU" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYSUBMENUUSERID" Association="Self.MTUSERBYSUBMENUUSERID">
+            <End Role="MTUSER" EntitySet="MTUSER" />
+            <End Role="MTUSERBYSUBMENU" EntitySet="MTUSERBYSUBMENU" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYSUBUSERAPPID" Association="Self.MTUSERBYSUBUSERAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATION" />
+            <End Role="MTUSERBYSUBUSER" EntitySet="MTUSERBYSUBUSER" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYSUBUSERSUBUSERID" Association="Self.MTUSERBYSUBUSERSUBUSERID">
+            <End Role="MTUSER" EntitySet="MTUSER" />
+            <End Role="MTUSERBYSUBUSER" EntitySet="MTUSERBYSUBUSER" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYSUBUSERUSERID" Association="Self.MTUSERBYSUBUSERUSERID">
+            <End Role="MTUSER" EntitySet="MTUSER" />
+            <End Role="MTUSERBYSUBUSER" EntitySet="MTUSERBYSUBUSER" />
+          </AssociationSet>
+          <AssociationSet Name="SERBYGROUPUSERGROUPUSERID" Association="Self.SERBYGROUPUSERGROUPUSERID">
+            <End Role="MTGROUPUSER" EntitySet="MTGROUPUSER" />
+            <End Role="MTUSERBYGROUPUSER" EntitySet="MTUSERBYGROUPUSER" />
+          </AssociationSet>
+          <AssociationSet Name="SUBMENUGROUPMENUID" Association="Self.SUBMENUGROUPMENUID">
+            <End Role="MTGROUPMENU" EntitySet="MTGROUPMENU" />
+            <End Role="MTGROUPMENUBYSUBMENU" EntitySet="MTGROUPMENUBYSUBMENU" />
+          </AssociationSet>
+          <AssociationSet Name="SUWBMENUSUBMENUID" Association="Self.SUWBMENUSUBMENUID">
+            <End Role="MTSUBMENU" EntitySet="MTSUBMENU" />
+            <End Role="MTGROUPMENUBYSUBMENU" EntitySet="MTGROUPMENUBYSUBMENU" />
+          </AssociationSet>
+          <AssociationSet Name="UBYSDUBMENUMENUID" Association="Self.UBYSDUBMENUMENUID">
+            <End Role="MTMENU" EntitySet="MTMENU" />
+            <End Role="MTGROUPMENUBYSUBMENU" EntitySet="MTGROUPMENUBYSUBMENU" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MTGROUPBYUSERs" EntityType="Model.MTGROUPBYUSER" />
+          <EntitySet Name="MTGROUPUSERs" EntityType="Model.MTGROUPUSER" />
+          <EntitySet Name="MTLOGs" EntityType="Model.MTLOG" />
+          <EntitySet Name="MTUSERs" EntityType="Model.MTUSER" />
+          <EntitySet Name="MTUSERBYMENUs" EntityType="Model.MTUSERBYMENU" />
+          <AssociationSet Name="MTGROUPBYUSERGROUPUSERID" Association="Model.MTGROUPBYUSERGROUPUSERID">
+            <End Role="MTGROUPUSER" EntitySet="MTGROUPUSERs" />
+            <End Role="MTGROUPBYUSER" EntitySet="MTGROUPBYUSERs" />
+          </AssociationSet>
+          <AssociationSet Name="MTGROUPBYUSERUSERID" Association="Model.MTGROUPBYUSERUSERID">
+            <End Role="MTUSER" EntitySet="MTUSERs" />
+            <End Role="MTGROUPBYUSER" EntitySet="MTGROUPBYUSERs" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYMENUUSERID" Association="Model.MTUSERBYMENUUSERID">
+            <End Role="MTUSER" EntitySet="MTUSERs" />
+            <End Role="MTUSERBYMENU" EntitySet="MTUSERBYMENUs" />
+          </AssociationSet>
+          <EntitySet Name="MTUSERBYGROUPMENUs" EntityType="Model.MTUSERBYGROUPMENU" />
+          <AssociationSet Name="MTUSERBYGROUPMENUUSERID" Association="Model.MTUSERBYGROUPMENUUSERID">
+            <End Role="MTUSER" EntitySet="MTUSERs" />
+            <End Role="MTUSERBYGROUPMENU" EntitySet="MTUSERBYGROUPMENUs" />
+          </AssociationSet>
+          <EntitySet Name="MTAPPBYUSERs" EntityType="Model.MTAPPBYUSER" />
+          <AssociationSet Name="MTAPPBYUSERUSERID" Association="Model.MTAPPBYUSERUSERID">
+            <End Role="MTUSER" EntitySet="MTUSERs" />
+            <End Role="MTAPPBYUSER" EntitySet="MTAPPBYUSERs" />
+          </AssociationSet>
+          <EntitySet Name="MTUSERBYSUBUSERs" EntityType="Model.MTUSERBYSUBUSER" />
+          <AssociationSet Name="MTUSERBYSUBUSERSUBUSERID" Association="Model.MTUSERBYSUBUSERSUBUSERID">
+            <End Role="MTUSER" EntitySet="MTUSERs" />
+            <End Role="MTUSERBYSUBUSER" EntitySet="MTUSERBYSUBUSERs" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYSUBUSERUSERID" Association="Model.MTUSERBYSUBUSERUSERID">
+            <End Role="MTUSER" EntitySet="MTUSERs" />
+            <End Role="MTUSERBYSUBUSER" EntitySet="MTUSERBYSUBUSERs" />
+          </AssociationSet>
+          <EntitySet Name="MTUSERBYSUBMENUs" EntityType="Model.MTUSERBYSUBMENU" />
+          <AssociationSet Name="MTUSERBYSUBMENUUSERID" Association="Model.MTUSERBYSUBMENUUSERID">
+            <End Role="MTUSER" EntitySet="MTUSERs" />
+            <End Role="MTUSERBYSUBMENU" EntitySet="MTUSERBYSUBMENUs" />
+          </AssociationSet>
+          <EntitySet Name="MTGROUPBYMENUs" EntityType="Model.MTGROUPBYMENU" />
+          <EntitySet Name="MTGROUPMENUBYSUBMENUs" EntityType="Model.MTGROUPMENUBYSUBMENU" />
+          <EntitySet Name="MTUSERBYGROUPUSERs" EntityType="Model.MTUSERBYGROUPUSER" />
+          <AssociationSet Name="SERBYGROUPUSERGROUPUSERID" Association="Model.SERBYGROUPUSERGROUPUSERID">
+            <End Role="MTGROUPUSER" EntitySet="MTGROUPUSERs" />
+            <End Role="MTUSERBYGROUPUSER" EntitySet="MTUSERBYGROUPUSERs" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYGROUPUSERUSERID" Association="Model.MTUSERBYGROUPUSERUSERID">
+            <End Role="MTUSER" EntitySet="MTUSERs" />
+            <End Role="MTUSERBYGROUPUSER" EntitySet="MTUSERBYGROUPUSERs" />
+          </AssociationSet>
+          <EntitySet Name="MTMENUs" EntityType="Model.MTMENU" />
+          <AssociationSet Name="MTGROUPBYMENUMENUID" Association="Model.MTGROUPBYMENUMENUID">
+            <End Role="MTMENU" EntitySet="MTMENUs" />
+            <End Role="MTGROUPBYMENU" EntitySet="MTGROUPBYMENUs" />
+          </AssociationSet>
+          <AssociationSet Name="UBYSDUBMENUMENUID" Association="Model.UBYSDUBMENUMENUID">
+            <End Role="MTMENU" EntitySet="MTMENUs" />
+            <End Role="MTGROUPMENUBYSUBMENU" EntitySet="MTGROUPMENUBYSUBMENUs" />
+          </AssociationSet>
+          <AssociationSet Name="BYSUBMENUMENUID" Association="Model.BYSUBMENUMENUID">
+            <End Role="MTMENU" EntitySet="MTMENUs" />
+            <End Role="MTUSERBYSUBMENU" EntitySet="MTUSERBYSUBMENUs" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYMENUMENUID" Association="Model.MTUSERBYMENUMENUID">
+            <End Role="MTMENU" EntitySet="MTMENUs" />
+            <End Role="MTUSERBYMENU" EntitySet="MTUSERBYMENUs" />
+          </AssociationSet>
+          <EntitySet Name="MTGROUPMENUs" EntityType="Model.MTGROUPMENU" />
+          <EntitySet Name="MTSUBMENUs" EntityType="Model.MTSUBMENU" />
+          <AssociationSet Name="MTGROUPBYMENUGROUPMENUID" Association="Model.MTGROUPBYMENUGROUPMENUID">
+            <End Role="MTGROUPMENU" EntitySet="MTGROUPMENUs" />
+            <End Role="MTGROUPBYMENU" EntitySet="MTGROUPBYMENUs" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYGROUPMENUGROUPMENUID" Association="Model.MTUSERBYGROUPMENUGROUPMENUID">
+            <End Role="MTGROUPMENU" EntitySet="MTGROUPMENUs" />
+            <End Role="MTUSERBYGROUPMENU" EntitySet="MTUSERBYGROUPMENUs" />
+          </AssociationSet>
+          <AssociationSet Name="SUBMENUGROUPMENUID" Association="Model.SUBMENUGROUPMENUID">
+            <End Role="MTGROUPMENU" EntitySet="MTGROUPMENUs" />
+            <End Role="MTGROUPMENUBYSUBMENU" EntitySet="MTGROUPMENUBYSUBMENUs" />
+          </AssociationSet>
+          <AssociationSet Name="SUWBMENUSUBMENUID" Association="Model.SUWBMENUSUBMENUID">
+            <End Role="MTSUBMENU" EntitySet="MTSUBMENUs" />
+            <End Role="MTGROUPMENUBYSUBMENU" EntitySet="MTGROUPMENUBYSUBMENUs" />
+          </AssociationSet>
+          <AssociationSet Name="MTSUBMENUMENUID" Association="Model.MTSUBMENUMENUID">
+            <End Role="MTMENU" EntitySet="MTMENUs" />
+            <End Role="MTSUBMENU" EntitySet="MTSUBMENUs" />
+          </AssociationSet>
+          <AssociationSet Name="BYSUBMENUSUBMENUID" Association="Model.BYSUBMENUSUBMENUID">
+            <End Role="MTSUBMENU" EntitySet="MTSUBMENUs" />
+            <End Role="MTUSERBYSUBMENU" EntitySet="MTUSERBYSUBMENUs" />
+          </AssociationSet>
+          <EntitySet Name="MTAPPLICATIONs" EntityType="Model.MTAPPLICATION" />
+          <AssociationSet Name="MTAPPBYUSERAPPID" Association="Model.MTAPPBYUSERAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATIONs" />
+            <End Role="MTAPPBYUSER" EntitySet="MTAPPBYUSERs" />
+          </AssociationSet>
+          <AssociationSet Name="MTGROUPBYMENUAPPID" Association="Model.MTGROUPBYMENUAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATIONs" />
+            <End Role="MTGROUPBYMENU" EntitySet="MTGROUPBYMENUs" />
+          </AssociationSet>
+          <AssociationSet Name="MTGROUPBYUSERAPPID" Association="Model.MTGROUPBYUSERAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATIONs" />
+            <End Role="MTGROUPBYUSER" EntitySet="MTGROUPBYUSERs" />
+          </AssociationSet>
+          <AssociationSet Name="MTGROUPMENUBYSUBMENUAPPID" Association="Model.MTGROUPMENUBYSUBMENUAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATIONs" />
+            <End Role="MTGROUPMENUBYSUBMENU" EntitySet="MTGROUPMENUBYSUBMENUs" />
+          </AssociationSet>
+          <AssociationSet Name="MTGROUPMENUGROUPMENUAPPID" Association="Model.MTGROUPMENUGROUPMENUAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATIONs" />
+            <End Role="MTGROUPMENU" EntitySet="MTGROUPMENUs" />
+          </AssociationSet>
+          <AssociationSet Name="MTGROUPUSERGROUPUSERAPPID" Association="Model.MTGROUPUSERGROUPUSERAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATIONs" />
+            <End Role="MTGROUPUSER" EntitySet="MTGROUPUSERs" />
+          </AssociationSet>
+          <AssociationSet Name="MTMENUMENUAPPID" Association="Model.MTMENUMENUAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATIONs" />
+            <End Role="MTMENU" EntitySet="MTMENUs" />
+          </AssociationSet>
+          <AssociationSet Name="MTSUBMENUAPPID" Association="Model.MTSUBMENUAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATIONs" />
+            <End Role="MTSUBMENU" EntitySet="MTSUBMENUs" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYGROUPMENUAPPID" Association="Model.MTUSERBYGROUPMENUAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATIONs" />
+            <End Role="MTUSERBYGROUPMENU" EntitySet="MTUSERBYGROUPMENUs" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYGROUPUSERAPPID" Association="Model.MTUSERBYGROUPUSERAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATIONs" />
+            <End Role="MTUSERBYGROUPUSER" EntitySet="MTUSERBYGROUPUSERs" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYMENUAPPID" Association="Model.MTUSERBYMENUAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATIONs" />
+            <End Role="MTUSERBYMENU" EntitySet="MTUSERBYMENUs" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYSUBMENUAPPID" Association="Model.MTUSERBYSUBMENUAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATIONs" />
+            <End Role="MTUSERBYSUBMENU" EntitySet="MTUSERBYSUBMENUs" />
+          </AssociationSet>
+          <AssociationSet Name="MTUSERBYSUBUSERAPPID" Association="Model.MTUSERBYSUBUSERAPPID">
+            <End Role="MTAPPLICATION" EntitySet="MTAPPLICATIONs" />
+            <End Role="MTUSERBYSUBUSER" EntitySet="MTUSERBYSUBUSERs" />
+          </AssociationSet>
+          <EntitySet Name="JAPPLICATIONs" EntityType="Model.JAPPLICATION" />
+          </EntityContainer>
+        <EntityType Name="MTGROUPBYUSER">
+          <Key>
+            <PropertyRef Name="GROUPUSERID" />
+            <PropertyRef Name="APPID" />
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="GROUPUSERID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="APPID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USERID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USERCREATE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TIME" Type="DateTime" />
+          <NavigationProperty Name="MTGROUPUSER" Relationship="Model.MTGROUPBYUSERGROUPUSERID" FromRole="MTGROUPBYUSER" ToRole="MTGROUPUSER" />
+          <NavigationProperty Name="MTUSER" Relationship="Model.MTGROUPBYUSERUSERID" FromRole="MTGROUPBYUSER" ToRole="MTUSER" />
+          <NavigationProperty Name="MTAPPLICATION" Relationship="Model.MTGROUPBYUSERAPPID" FromRole="MTGROUPBYUSER" ToRole="MTAPPLICATION" />
+        </EntityType>
+        <EntityType Name="MTGROUPUSER">
+          <Key>
+            <PropertyRef Name="GROUPUSERID" />
+            <PropertyRef Name="APPID" />
+          </Key>
+          <Property Name="GROUPUSERID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="GROUPUSERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="APPID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="USERCREATE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TIME" Type="DateTime" />
+          <NavigationProperty Name="MTGROUPBYUSERs" Relationship="Model.MTGROUPBYUSERGROUPUSERID" FromRole="MTGROUPUSER" ToRole="MTGROUPBYUSER" />
+          <NavigationProperty Name="MTUSERBYGROUPUSERs" Relationship="Model.SERBYGROUPUSERGROUPUSERID" FromRole="MTGROUPUSER" ToRole="MTUSERBYGROUPUSER" />
+          <NavigationProperty Name="MTAPPLICATION" Relationship="Model.MTGROUPUSERGROUPUSERAPPID" FromRole="MTGROUPUSER" ToRole="MTAPPLICATION" />
+        </EntityType>
+        <EntityType Name="MTLOG">
+          <Key>
+            <PropertyRef Name="LOGID" />
+          </Key>
+          <Property Name="LOGID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USERID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TIME" Type="DateTime" />
+          <Property Name="TABLE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KEY_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KEY_VALUE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CONTENT" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MTUSER">
+          <Key>
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="USERID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USERPASS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ACTIVE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="FULLNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LOGINBY" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="EMPNO" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MTGROUPBYUSERs" Relationship="Model.MTGROUPBYUSERUSERID" FromRole="MTUSER" ToRole="MTGROUPBYUSER" />
+          <NavigationProperty Name="MTUSERBYMENUs" Relationship="Model.MTUSERBYMENUUSERID" FromRole="MTUSER" ToRole="MTUSERBYMENU" />
+          <NavigationProperty Name="MTUSERBYGROUPMENUs" Relationship="Model.MTUSERBYGROUPMENUUSERID" FromRole="MTUSER" ToRole="MTUSERBYGROUPMENU" />
+          <NavigationProperty Name="MTAPPBYUSERs" Relationship="Model.MTAPPBYUSERUSERID" FromRole="MTUSER" ToRole="MTAPPBYUSER" />
+          <NavigationProperty Name="MTUSERBYSUBUSERs" Relationship="Model.MTUSERBYSUBUSERSUBUSERID" FromRole="MTUSER" ToRole="MTUSERBYSUBUSER" />
+          <NavigationProperty Name="MTUSERBYSUBUSERs1" Relationship="Model.MTUSERBYSUBUSERUSERID" FromRole="MTUSER" ToRole="MTUSERBYSUBUSER" />
+          <NavigationProperty Name="MTUSERBYSUBMENUs" Relationship="Model.MTUSERBYSUBMENUUSERID" FromRole="MTUSER" ToRole="MTUSERBYSUBMENU" />
+          <NavigationProperty Name="MTUSERBYGROUPUSERs" Relationship="Model.MTUSERBYGROUPUSERUSERID" FromRole="MTUSER" ToRole="MTUSERBYGROUPUSER" />
+          <Property Name="SAPID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MTUSERBYMENU">
+          <Key>
+            <PropertyRef Name="MENUID" />
+            <PropertyRef Name="APPID" />
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="MENUID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="APPID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USERID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USERCREATE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TIME" Type="DateTime" />
+          <NavigationProperty Name="MTUSER" Relationship="Model.MTUSERBYMENUUSERID" FromRole="MTUSERBYMENU" ToRole="MTUSER" />
+          <NavigationProperty Name="MTMENU" Relationship="Model.MTUSERBYMENUMENUID" FromRole="MTUSERBYMENU" ToRole="MTMENU" />
+          <NavigationProperty Name="MTAPPLICATION" Relationship="Model.MTUSERBYMENUAPPID" FromRole="MTUSERBYMENU" ToRole="MTAPPLICATION" />
+        </EntityType>
+        <Association Name="MTGROUPBYUSERGROUPUSERID">
+          <End Type="Model.MTGROUPUSER" Role="MTGROUPUSER" Multiplicity="1" />
+          <End Type="Model.MTGROUPBYUSER" Role="MTGROUPBYUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTGROUPUSER">
+              <PropertyRef Name="GROUPUSERID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPBYUSER">
+              <PropertyRef Name="GROUPUSERID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTGROUPBYUSERUSERID">
+          <End Type="Model.MTUSER" Role="MTUSER" Multiplicity="1" />
+          <End Type="Model.MTGROUPBYUSER" Role="MTGROUPBYUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTUSER">
+              <PropertyRef Name="USERID" />
+            </Principal>
+            <Dependent Role="MTGROUPBYUSER">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYMENUUSERID">
+          <End Type="Model.MTUSER" Role="MTUSER" Multiplicity="1" />
+          <End Type="Model.MTUSERBYMENU" Role="MTUSERBYMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTUSER">
+              <PropertyRef Name="USERID" />
+            </Principal>
+            <Dependent Role="MTUSERBYMENU">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MTUSERBYGROUPMENU">
+          <Key>
+            <PropertyRef Name="GROUPMENUID" />
+            <PropertyRef Name="APPID" />
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="GROUPMENUID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="APPID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USERID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USERCREATE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TIME" Type="DateTime" />
+          <NavigationProperty Name="MTUSER" Relationship="Model.MTUSERBYGROUPMENUUSERID" FromRole="MTUSERBYGROUPMENU" ToRole="MTUSER" />
+          <NavigationProperty Name="MTGROUPMENU" Relationship="Model.MTUSERBYGROUPMENUGROUPMENUID" FromRole="MTUSERBYGROUPMENU" ToRole="MTGROUPMENU" />
+          <NavigationProperty Name="MTAPPLICATION" Relationship="Model.MTUSERBYGROUPMENUAPPID" FromRole="MTUSERBYGROUPMENU" ToRole="MTAPPLICATION" />
+        </EntityType>
+        <Association Name="MTUSERBYGROUPMENUUSERID">
+          <End Type="Model.MTUSER" Role="MTUSER" Multiplicity="1" />
+          <End Type="Model.MTUSERBYGROUPMENU" Role="MTUSERBYGROUPMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTUSER">
+              <PropertyRef Name="USERID" />
+            </Principal>
+            <Dependent Role="MTUSERBYGROUPMENU">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MTAPPBYUSER">
+          <Key>
+            <PropertyRef Name="APPID" />
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="APPID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USERID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USERCREATE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TIME" Type="DateTime" />
+          <Property Name="ROLE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MTUSER" Relationship="Model.MTAPPBYUSERUSERID" FromRole="MTAPPBYUSER" ToRole="MTUSER" />
+          <NavigationProperty Name="MTAPPLICATION" Relationship="Model.MTAPPBYUSERAPPID" FromRole="MTAPPBYUSER" ToRole="MTAPPLICATION" />
+        </EntityType>
+        <Association Name="MTAPPBYUSERUSERID">
+          <End Type="Model.MTUSER" Role="MTUSER" Multiplicity="1" />
+          <End Type="Model.MTAPPBYUSER" Role="MTAPPBYUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTUSER">
+              <PropertyRef Name="USERID" />
+            </Principal>
+            <Dependent Role="MTAPPBYUSER">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MTUSERBYSUBUSER">
+          <Key>
+            <PropertyRef Name="SUBUSERID" />
+            <PropertyRef Name="APPID" />
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="SUBUSERID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="APPID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USERID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USERCREATE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TIME" Type="DateTime" />
+          <NavigationProperty Name="MTUSER" Relationship="Model.MTUSERBYSUBUSERSUBUSERID" FromRole="MTUSERBYSUBUSER" ToRole="MTUSER" />
+          <NavigationProperty Name="MTUSER1" Relationship="Model.MTUSERBYSUBUSERUSERID" FromRole="MTUSERBYSUBUSER" ToRole="MTUSER" />
+          <NavigationProperty Name="MTAPPLICATION" Relationship="Model.MTUSERBYSUBUSERAPPID" FromRole="MTUSERBYSUBUSER" ToRole="MTAPPLICATION" />
+        </EntityType>
+        <Association Name="MTUSERBYSUBUSERSUBUSERID">
+          <End Type="Model.MTUSER" Role="MTUSER" Multiplicity="1" />
+          <End Type="Model.MTUSERBYSUBUSER" Role="MTUSERBYSUBUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTUSER">
+              <PropertyRef Name="USERID" />
+            </Principal>
+            <Dependent Role="MTUSERBYSUBUSER">
+              <PropertyRef Name="SUBUSERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYSUBUSERUSERID">
+          <End Type="Model.MTUSER" Role="MTUSER" Multiplicity="1" />
+          <End Type="Model.MTUSERBYSUBUSER" Role="MTUSERBYSUBUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTUSER">
+              <PropertyRef Name="USERID" />
+            </Principal>
+            <Dependent Role="MTUSERBYSUBUSER">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MTUSERBYSUBMENU">
+          <Key>
+            <PropertyRef Name="MENUID" />
+            <PropertyRef Name="SUBMENUID" />
+            <PropertyRef Name="APPID" />
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="MENUID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="SUBMENUID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="APPID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USERID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USERCREATE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TIME" Type="DateTime" />
+          <NavigationProperty Name="MTUSER" Relationship="Model.MTUSERBYSUBMENUUSERID" FromRole="MTUSERBYSUBMENU" ToRole="MTUSER" />
+          <NavigationProperty Name="MTMENU" Relationship="Model.BYSUBMENUMENUID" FromRole="MTUSERBYSUBMENU" ToRole="MTMENU" />
+          <NavigationProperty Name="MTSUBMENU" Relationship="Model.BYSUBMENUSUBMENUID" FromRole="MTUSERBYSUBMENU" ToRole="MTSUBMENU" />
+          <NavigationProperty Name="MTAPPLICATION" Relationship="Model.MTUSERBYSUBMENUAPPID" FromRole="MTUSERBYSUBMENU" ToRole="MTAPPLICATION" />
+        </EntityType>
+        <Association Name="MTUSERBYSUBMENUUSERID">
+          <End Type="Model.MTUSER" Role="MTUSER" Multiplicity="1" />
+          <End Type="Model.MTUSERBYSUBMENU" Role="MTUSERBYSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTUSER">
+              <PropertyRef Name="USERID" />
+            </Principal>
+            <Dependent Role="MTUSERBYSUBMENU">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MTGROUPBYMENU">
+          <Key>
+            <PropertyRef Name="GROUPMENUID" />
+            <PropertyRef Name="MENUID" />
+            <PropertyRef Name="APPID" />
+          </Key>
+          <Property Name="GROUPMENUID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="MENUID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="APPID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USERCREATE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TIME" Type="DateTime" />
+          <NavigationProperty Name="MTMENU" Relationship="Model.MTGROUPBYMENUMENUID" FromRole="MTGROUPBYMENU" ToRole="MTMENU" />
+          <NavigationProperty Name="MTGROUPMENU" Relationship="Model.MTGROUPBYMENUGROUPMENUID" FromRole="MTGROUPBYMENU" ToRole="MTGROUPMENU" />
+          <NavigationProperty Name="MTAPPLICATION" Relationship="Model.MTGROUPBYMENUAPPID" FromRole="MTGROUPBYMENU" ToRole="MTAPPLICATION" />
+        </EntityType>
+        <EntityType Name="MTGROUPMENUBYSUBMENU">
+          <Key>
+            <PropertyRef Name="MENUID" />
+            <PropertyRef Name="SUBMENUID" />
+            <PropertyRef Name="APPID" />
+            <PropertyRef Name="GROUPID" />
+          </Key>
+          <Property Name="MENUID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="SUBMENUID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="APPID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="GROUPID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USERCREATE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TIME" Type="DateTime" />
+          <NavigationProperty Name="MTMENU" Relationship="Model.UBYSDUBMENUMENUID" FromRole="MTGROUPMENUBYSUBMENU" ToRole="MTMENU" />
+          <NavigationProperty Name="MTGROUPMENU" Relationship="Model.SUBMENUGROUPMENUID" FromRole="MTGROUPMENUBYSUBMENU" ToRole="MTGROUPMENU" />
+          <NavigationProperty Name="MTSUBMENU" Relationship="Model.SUWBMENUSUBMENUID" FromRole="MTGROUPMENUBYSUBMENU" ToRole="MTSUBMENU" />
+          <NavigationProperty Name="MTAPPLICATION" Relationship="Model.MTGROUPMENUBYSUBMENUAPPID" FromRole="MTGROUPMENUBYSUBMENU" ToRole="MTAPPLICATION" />
+        </EntityType>
+        <EntityType Name="MTUSERBYGROUPUSER">
+          <Key>
+            <PropertyRef Name="GROUPUSERID" />
+            <PropertyRef Name="APPID" />
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="GROUPUSERID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="APPID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USERID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USERCREATE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TIME" Type="DateTime" />
+          <NavigationProperty Name="MTGROUPUSER" Relationship="Model.SERBYGROUPUSERGROUPUSERID" FromRole="MTUSERBYGROUPUSER" ToRole="MTGROUPUSER" />
+          <NavigationProperty Name="MTUSER" Relationship="Model.MTUSERBYGROUPUSERUSERID" FromRole="MTUSERBYGROUPUSER" ToRole="MTUSER" />
+          <NavigationProperty Name="MTAPPLICATION" Relationship="Model.MTUSERBYGROUPUSERAPPID" FromRole="MTUSERBYGROUPUSER" ToRole="MTAPPLICATION" />
+        </EntityType>
+        <Association Name="SERBYGROUPUSERGROUPUSERID">
+          <End Type="Model.MTGROUPUSER" Role="MTGROUPUSER" Multiplicity="1" />
+          <End Type="Model.MTUSERBYGROUPUSER" Role="MTUSERBYGROUPUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTGROUPUSER">
+              <PropertyRef Name="GROUPUSERID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTUSERBYGROUPUSER">
+              <PropertyRef Name="GROUPUSERID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYGROUPUSERUSERID">
+          <End Type="Model.MTUSER" Role="MTUSER" Multiplicity="1" />
+          <End Type="Model.MTUSERBYGROUPUSER" Role="MTUSERBYGROUPUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTUSER">
+              <PropertyRef Name="USERID" />
+            </Principal>
+            <Dependent Role="MTUSERBYGROUPUSER">
+              <PropertyRef Name="USERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MTMENU">
+          <Key>
+            <PropertyRef Name="MENUID" />
+            <PropertyRef Name="APPID" />
+          </Key>
+          <Property Name="MENUID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="MENUNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="APPID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USERCREATE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TIME" Type="DateTime" />
+          <Property Name="LINK" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ICON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MTGROUPBYMENUs" Relationship="Model.MTGROUPBYMENUMENUID" FromRole="MTMENU" ToRole="MTGROUPBYMENU" />
+          <NavigationProperty Name="MTGROUPMENUBYSUBMENUs" Relationship="Model.UBYSDUBMENUMENUID" FromRole="MTMENU" ToRole="MTGROUPMENUBYSUBMENU" />
+          <NavigationProperty Name="MTUSERBYSUBMENUs" Relationship="Model.BYSUBMENUMENUID" FromRole="MTMENU" ToRole="MTUSERBYSUBMENU" />
+          <NavigationProperty Name="MTUSERBYMENUs" Relationship="Model.MTUSERBYMENUMENUID" FromRole="MTMENU" ToRole="MTUSERBYMENU" />
+          <NavigationProperty Name="MTSUBMENUs" Relationship="Model.MTSUBMENUMENUID" FromRole="MTMENU" ToRole="MTSUBMENU" />
+          <NavigationProperty Name="MTAPPLICATION" Relationship="Model.MTMENUMENUAPPID" FromRole="MTMENU" ToRole="MTAPPLICATION" />
+        </EntityType>
+        <Association Name="MTGROUPBYMENUMENUID">
+          <End Type="Model.MTMENU" Role="MTMENU" Multiplicity="1" />
+          <End Type="Model.MTGROUPBYMENU" Role="MTGROUPBYMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPBYMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UBYSDUBMENUMENUID">
+          <End Type="Model.MTMENU" Role="MTMENU" Multiplicity="1" />
+          <End Type="Model.MTGROUPMENUBYSUBMENU" Role="MTGROUPMENUBYSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPMENUBYSUBMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BYSUBMENUMENUID">
+          <End Type="Model.MTMENU" Role="MTMENU" Multiplicity="1" />
+          <End Type="Model.MTUSERBYSUBMENU" Role="MTUSERBYSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTUSERBYSUBMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYMENUMENUID">
+          <End Type="Model.MTMENU" Role="MTMENU" Multiplicity="1" />
+          <End Type="Model.MTUSERBYMENU" Role="MTUSERBYMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTUSERBYMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MTGROUPMENU">
+          <Key>
+            <PropertyRef Name="GROUPMENUID" />
+            <PropertyRef Name="APPID" />
+          </Key>
+          <Property Name="GROUPMENUID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="GROUPMENUNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="APPID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USERCREATE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TIME" Type="DateTime" />
+          <Property Name="GROUPMAIN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ICON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LINK" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MTGROUPBYMENUs" Relationship="Model.MTGROUPBYMENUGROUPMENUID" FromRole="MTGROUPMENU" ToRole="MTGROUPBYMENU" />
+          <NavigationProperty Name="MTUSERBYGROUPMENUs" Relationship="Model.MTUSERBYGROUPMENUGROUPMENUID" FromRole="MTGROUPMENU" ToRole="MTUSERBYGROUPMENU" />
+          <NavigationProperty Name="MTGROUPMENUBYSUBMENUs" Relationship="Model.SUBMENUGROUPMENUID" FromRole="MTGROUPMENU" ToRole="MTGROUPMENUBYSUBMENU" />
+          <NavigationProperty Name="MTAPPLICATION" Relationship="Model.MTGROUPMENUGROUPMENUAPPID" FromRole="MTGROUPMENU" ToRole="MTAPPLICATION" />
+        </EntityType>
+        <EntityType Name="MTSUBMENU">
+          <Key>
+            <PropertyRef Name="SUBMENUID" />
+            <PropertyRef Name="APPID" />
+            <PropertyRef Name="MENUID" />
+          </Key>
+          <Property Name="SUBMENUID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="SUBMENUNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="APPID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USERCREATE" Type="String" MaxLength="49" FixedLength="false" Unicode="true" />
+          <Property Name="TIME" Type="DateTime" />
+          <Property Name="MENUID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ICON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LINK" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MTGROUPMENUBYSUBMENUs" Relationship="Model.SUWBMENUSUBMENUID" FromRole="MTSUBMENU" ToRole="MTGROUPMENUBYSUBMENU" />
+          <NavigationProperty Name="MTMENU" Relationship="Model.MTSUBMENUMENUID" FromRole="MTSUBMENU" ToRole="MTMENU" />
+          <NavigationProperty Name="MTUSERBYSUBMENUs" Relationship="Model.BYSUBMENUSUBMENUID" FromRole="MTSUBMENU" ToRole="MTUSERBYSUBMENU" />
+          <NavigationProperty Name="MTAPPLICATION" Relationship="Model.MTSUBMENUAPPID" FromRole="MTSUBMENU" ToRole="MTAPPLICATION" />
+        </EntityType>
+        <Association Name="MTGROUPBYMENUGROUPMENUID">
+          <End Type="Model.MTGROUPMENU" Role="MTGROUPMENU" Multiplicity="1" />
+          <End Type="Model.MTGROUPBYMENU" Role="MTGROUPBYMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTGROUPMENU">
+              <PropertyRef Name="GROUPMENUID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPBYMENU">
+              <PropertyRef Name="GROUPMENUID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYGROUPMENUGROUPMENUID">
+          <End Type="Model.MTGROUPMENU" Role="MTGROUPMENU" Multiplicity="1" />
+          <End Type="Model.MTUSERBYGROUPMENU" Role="MTUSERBYGROUPMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTGROUPMENU">
+              <PropertyRef Name="GROUPMENUID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTUSERBYGROUPMENU">
+              <PropertyRef Name="GROUPMENUID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SUBMENUGROUPMENUID">
+          <End Type="Model.MTGROUPMENU" Role="MTGROUPMENU" Multiplicity="1" />
+          <End Type="Model.MTGROUPMENUBYSUBMENU" Role="MTGROUPMENUBYSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTGROUPMENU">
+              <PropertyRef Name="GROUPMENUID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPMENUBYSUBMENU">
+              <PropertyRef Name="GROUPID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SUWBMENUSUBMENUID">
+          <End Type="Model.MTSUBMENU" Role="MTSUBMENU" Multiplicity="1" />
+          <End Type="Model.MTGROUPMENUBYSUBMENU" Role="MTGROUPMENUBYSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTSUBMENU">
+              <PropertyRef Name="SUBMENUID" />
+              <PropertyRef Name="APPID" />
+              <PropertyRef Name="MENUID" />
+            </Principal>
+            <Dependent Role="MTGROUPMENUBYSUBMENU">
+              <PropertyRef Name="SUBMENUID" />
+              <PropertyRef Name="APPID" />
+              <PropertyRef Name="MENUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTSUBMENUMENUID">
+          <End Type="Model.MTMENU" Role="MTMENU" Multiplicity="1" />
+          <End Type="Model.MTSUBMENU" Role="MTSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTSUBMENU">
+              <PropertyRef Name="MENUID" />
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BYSUBMENUSUBMENUID">
+          <End Type="Model.MTSUBMENU" Role="MTSUBMENU" Multiplicity="1" />
+          <End Type="Model.MTUSERBYSUBMENU" Role="MTUSERBYSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTSUBMENU">
+              <PropertyRef Name="SUBMENUID" />
+              <PropertyRef Name="APPID" />
+              <PropertyRef Name="MENUID" />
+            </Principal>
+            <Dependent Role="MTUSERBYSUBMENU">
+              <PropertyRef Name="SUBMENUID" />
+              <PropertyRef Name="APPID" />
+              <PropertyRef Name="MENUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MTAPPLICATION">
+          <Key>
+            <PropertyRef Name="APPID" />
+          </Key>
+          <Property Name="APPID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="APPNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USERCREATE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TIME" Type="DateTime" />
+          <Property Name="CLIENTID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MTAPPBYUSERs" Relationship="Model.MTAPPBYUSERAPPID" FromRole="MTAPPLICATION" ToRole="MTAPPBYUSER" />
+          <NavigationProperty Name="MTGROUPBYMENUs" Relationship="Model.MTGROUPBYMENUAPPID" FromRole="MTAPPLICATION" ToRole="MTGROUPBYMENU" />
+          <NavigationProperty Name="MTGROUPBYUSERs" Relationship="Model.MTGROUPBYUSERAPPID" FromRole="MTAPPLICATION" ToRole="MTGROUPBYUSER" />
+          <NavigationProperty Name="MTGROUPMENUBYSUBMENUs" Relationship="Model.MTGROUPMENUBYSUBMENUAPPID" FromRole="MTAPPLICATION" ToRole="MTGROUPMENUBYSUBMENU" />
+          <NavigationProperty Name="MTGROUPMENUs" Relationship="Model.MTGROUPMENUGROUPMENUAPPID" FromRole="MTAPPLICATION" ToRole="MTGROUPMENU" />
+          <NavigationProperty Name="MTGROUPUSERs" Relationship="Model.MTGROUPUSERGROUPUSERAPPID" FromRole="MTAPPLICATION" ToRole="MTGROUPUSER" />
+          <NavigationProperty Name="MTMENUs" Relationship="Model.MTMENUMENUAPPID" FromRole="MTAPPLICATION" ToRole="MTMENU" />
+          <NavigationProperty Name="MTSUBMENUs" Relationship="Model.MTSUBMENUAPPID" FromRole="MTAPPLICATION" ToRole="MTSUBMENU" />
+          <NavigationProperty Name="MTUSERBYGROUPMENUs" Relationship="Model.MTUSERBYGROUPMENUAPPID" FromRole="MTAPPLICATION" ToRole="MTUSERBYGROUPMENU" />
+          <NavigationProperty Name="MTUSERBYGROUPUSERs" Relationship="Model.MTUSERBYGROUPUSERAPPID" FromRole="MTAPPLICATION" ToRole="MTUSERBYGROUPUSER" />
+          <NavigationProperty Name="MTUSERBYMENUs" Relationship="Model.MTUSERBYMENUAPPID" FromRole="MTAPPLICATION" ToRole="MTUSERBYMENU" />
+          <NavigationProperty Name="MTUSERBYSUBMENUs" Relationship="Model.MTUSERBYSUBMENUAPPID" FromRole="MTAPPLICATION" ToRole="MTUSERBYSUBMENU" />
+          <NavigationProperty Name="MTUSERBYSUBUSERs" Relationship="Model.MTUSERBYSUBUSERAPPID" FromRole="MTAPPLICATION" ToRole="MTUSERBYSUBUSER" />
+        </EntityType>
+        <Association Name="MTAPPBYUSERAPPID">
+          <End Type="Model.MTAPPLICATION" Role="MTAPPLICATION" Multiplicity="1" />
+          <End Type="Model.MTAPPBYUSER" Role="MTAPPBYUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTAPPBYUSER">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTGROUPBYMENUAPPID">
+          <End Type="Model.MTAPPLICATION" Role="MTAPPLICATION" Multiplicity="1" />
+          <End Type="Model.MTGROUPBYMENU" Role="MTGROUPBYMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPBYMENU">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTGROUPBYUSERAPPID">
+          <End Type="Model.MTAPPLICATION" Role="MTAPPLICATION" Multiplicity="1" />
+          <End Type="Model.MTGROUPBYUSER" Role="MTGROUPBYUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPBYUSER">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTGROUPMENUBYSUBMENUAPPID">
+          <End Type="Model.MTAPPLICATION" Role="MTAPPLICATION" Multiplicity="1" />
+          <End Type="Model.MTGROUPMENUBYSUBMENU" Role="MTGROUPMENUBYSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPMENUBYSUBMENU">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTGROUPMENUGROUPMENUAPPID">
+          <End Type="Model.MTAPPLICATION" Role="MTAPPLICATION" Multiplicity="1" />
+          <End Type="Model.MTGROUPMENU" Role="MTGROUPMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPMENU">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTGROUPUSERGROUPUSERAPPID">
+          <End Type="Model.MTAPPLICATION" Role="MTAPPLICATION" Multiplicity="1" />
+          <End Type="Model.MTGROUPUSER" Role="MTGROUPUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTGROUPUSER">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTMENUMENUAPPID">
+          <End Type="Model.MTAPPLICATION" Role="MTAPPLICATION" Multiplicity="1" />
+          <End Type="Model.MTMENU" Role="MTMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTMENU">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTSUBMENUAPPID">
+          <End Type="Model.MTAPPLICATION" Role="MTAPPLICATION" Multiplicity="1" />
+          <End Type="Model.MTSUBMENU" Role="MTSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTSUBMENU">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYGROUPMENUAPPID">
+          <End Type="Model.MTAPPLICATION" Role="MTAPPLICATION" Multiplicity="1" />
+          <End Type="Model.MTUSERBYGROUPMENU" Role="MTUSERBYGROUPMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTUSERBYGROUPMENU">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYGROUPUSERAPPID">
+          <End Type="Model.MTAPPLICATION" Role="MTAPPLICATION" Multiplicity="1" />
+          <End Type="Model.MTUSERBYGROUPUSER" Role="MTUSERBYGROUPUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTUSERBYGROUPUSER">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYMENUAPPID">
+          <End Type="Model.MTAPPLICATION" Role="MTAPPLICATION" Multiplicity="1" />
+          <End Type="Model.MTUSERBYMENU" Role="MTUSERBYMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTUSERBYMENU">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYSUBMENUAPPID">
+          <End Type="Model.MTAPPLICATION" Role="MTAPPLICATION" Multiplicity="1" />
+          <End Type="Model.MTUSERBYSUBMENU" Role="MTUSERBYSUBMENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTUSERBYSUBMENU">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MTUSERBYSUBUSERAPPID">
+          <End Type="Model.MTAPPLICATION" Role="MTAPPLICATION" Multiplicity="1" />
+          <End Type="Model.MTUSERBYSUBUSER" Role="MTUSERBYSUBUSER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTAPPLICATION">
+              <PropertyRef Name="APPID" />
+            </Principal>
+            <Dependent Role="MTUSERBYSUBUSER">
+              <PropertyRef Name="APPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="JAPPLICATION">
+          <Key>
+            <PropertyRef Name="APPID" />
+          </Key>
+          <Property Name="APPID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="APPNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USERCREATE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="TIME" Type="DateTime" />
+          <Property Name="CLIENTID" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MESSAGE" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="VERSIONANDROID" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="VERSIONIOS" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="VERSIONWEB" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="VERSIONDESKTOP" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="MTGROUPBYUSERs">
+            <EntityTypeMapping TypeName="Model.MTGROUPBYUSER">
+              <MappingFragment StoreEntitySet="MTGROUPBYUSER">
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="USERCREATE" ColumnName="USERCREATE" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="APPID" ColumnName="APPID" />
+                <ScalarProperty Name="GROUPUSERID" ColumnName="GROUPUSERID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTGROUPUSERs">
+            <EntityTypeMapping TypeName="Model.MTGROUPUSER">
+              <MappingFragment StoreEntitySet="MTGROUPUSER">
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="USERCREATE" ColumnName="USERCREATE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="APPID" ColumnName="APPID" />
+                <ScalarProperty Name="GROUPUSERNAME" ColumnName="GROUPUSERNAME" />
+                <ScalarProperty Name="GROUPUSERID" ColumnName="GROUPUSERID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTLOGs">
+            <EntityTypeMapping TypeName="Model.MTLOG">
+              <MappingFragment StoreEntitySet="MTLOG">
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="CONTENT" ColumnName="CONTENT" />
+                <ScalarProperty Name="KEY_VALUE" ColumnName="KEY_VALUE" />
+                <ScalarProperty Name="KEY_NAME" ColumnName="KEY_NAME" />
+                <ScalarProperty Name="TABLE_NAME" ColumnName="TABLE_NAME" />
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="LOGID" ColumnName="LOGID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTUSERs">
+            <EntityTypeMapping TypeName="Model.MTUSER">
+              <MappingFragment StoreEntitySet="MTUSER">
+                <ScalarProperty Name="SAPID" ColumnName="SAPID" />
+                <ScalarProperty Name="EMPNO" ColumnName="EMPNO" />
+                <ScalarProperty Name="LOGINBY" ColumnName="LOGINBY" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+                <ScalarProperty Name="USERPASS" ColumnName="USERPASS" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTUSERBYMENUs">
+            <EntityTypeMapping TypeName="Model.MTUSERBYMENU">
+              <MappingFragment StoreEntitySet="MTUSERBYMENU">
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="USERCREATE" ColumnName="USERCREATE" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="APPID" ColumnName="APPID" />
+                <ScalarProperty Name="MENUID" ColumnName="MENUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTUSERBYGROUPMENUs">
+            <EntityTypeMapping TypeName="Model.MTUSERBYGROUPMENU">
+              <MappingFragment StoreEntitySet="MTUSERBYGROUPMENU">
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="USERCREATE" ColumnName="USERCREATE" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="APPID" ColumnName="APPID" />
+                <ScalarProperty Name="GROUPMENUID" ColumnName="GROUPMENUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTAPPBYUSERs">
+            <EntityTypeMapping TypeName="Model.MTAPPBYUSER">
+              <MappingFragment StoreEntitySet="MTAPPBYUSER">
+                <ScalarProperty Name="ROLE" ColumnName="ROLE" />
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="USERCREATE" ColumnName="USERCREATE" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="APPID" ColumnName="APPID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTUSERBYSUBUSERs">
+            <EntityTypeMapping TypeName="Model.MTUSERBYSUBUSER">
+              <MappingFragment StoreEntitySet="MTUSERBYSUBUSER">
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="USERCREATE" ColumnName="USERCREATE" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="APPID" ColumnName="APPID" />
+                <ScalarProperty Name="SUBUSERID" ColumnName="SUBUSERID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTUSERBYSUBMENUs">
+            <EntityTypeMapping TypeName="Model.MTUSERBYSUBMENU">
+              <MappingFragment StoreEntitySet="MTUSERBYSUBMENU">
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="USERCREATE" ColumnName="USERCREATE" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="APPID" ColumnName="APPID" />
+                <ScalarProperty Name="SUBMENUID" ColumnName="SUBMENUID" />
+                <ScalarProperty Name="MENUID" ColumnName="MENUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTGROUPBYMENUs">
+            <EntityTypeMapping TypeName="Model.MTGROUPBYMENU">
+              <MappingFragment StoreEntitySet="MTGROUPBYMENU">
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="USERCREATE" ColumnName="USERCREATE" />
+                <ScalarProperty Name="APPID" ColumnName="APPID" />
+                <ScalarProperty Name="MENUID" ColumnName="MENUID" />
+                <ScalarProperty Name="GROUPMENUID" ColumnName="GROUPMENUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTGROUPMENUBYSUBMENUs">
+            <EntityTypeMapping TypeName="Model.MTGROUPMENUBYSUBMENU">
+              <MappingFragment StoreEntitySet="MTGROUPMENUBYSUBMENU">
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="USERCREATE" ColumnName="USERCREATE" />
+                <ScalarProperty Name="GROUPID" ColumnName="GROUPID" />
+                <ScalarProperty Name="APPID" ColumnName="APPID" />
+                <ScalarProperty Name="SUBMENUID" ColumnName="SUBMENUID" />
+                <ScalarProperty Name="MENUID" ColumnName="MENUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTUSERBYGROUPUSERs">
+            <EntityTypeMapping TypeName="Model.MTUSERBYGROUPUSER">
+              <MappingFragment StoreEntitySet="MTUSERBYGROUPUSER">
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="USERCREATE" ColumnName="USERCREATE" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="APPID" ColumnName="APPID" />
+                <ScalarProperty Name="GROUPUSERID" ColumnName="GROUPUSERID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTMENUs">
+            <EntityTypeMapping TypeName="Model.MTMENU">
+              <MappingFragment StoreEntitySet="MTMENU">
+                <ScalarProperty Name="ICON" ColumnName="ICON" />
+                <ScalarProperty Name="LINK" ColumnName="LINK" />
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="USERCREATE" ColumnName="USERCREATE" />
+                <ScalarProperty Name="APPID" ColumnName="APPID" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="MENUNAME" ColumnName="MENUNAME" />
+                <ScalarProperty Name="MENUID" ColumnName="MENUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTGROUPMENUs">
+            <EntityTypeMapping TypeName="Model.MTGROUPMENU">
+              <MappingFragment StoreEntitySet="MTGROUPMENU">
+                <ScalarProperty Name="LINK" ColumnName="LINK" />
+                <ScalarProperty Name="ICON" ColumnName="ICON" />
+                <ScalarProperty Name="GROUPMAIN" ColumnName="GROUPMAIN" />
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="USERCREATE" ColumnName="USERCREATE" />
+                <ScalarProperty Name="APPID" ColumnName="APPID" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="GROUPMENUNAME" ColumnName="GROUPMENUNAME" />
+                <ScalarProperty Name="GROUPMENUID" ColumnName="GROUPMENUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTSUBMENUs">
+            <EntityTypeMapping TypeName="Model.MTSUBMENU">
+              <MappingFragment StoreEntitySet="MTSUBMENU">
+                <ScalarProperty Name="LINK" ColumnName="LINK" />
+                <ScalarProperty Name="ICON" ColumnName="ICON" />
+                <ScalarProperty Name="MENUID" ColumnName="MENUID" />
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="USERCREATE" ColumnName="USERCREATE" />
+                <ScalarProperty Name="APPID" ColumnName="APPID" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="SUBMENUNAME" ColumnName="SUBMENUNAME" />
+                <ScalarProperty Name="SUBMENUID" ColumnName="SUBMENUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTAPPLICATIONs">
+            <EntityTypeMapping TypeName="Model.MTAPPLICATION">
+              <MappingFragment StoreEntitySet="MTAPPLICATION">
+                <ScalarProperty Name="CLIENTID" ColumnName="CLIENTID" />
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="USERCREATE" ColumnName="USERCREATE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="APPNAME" ColumnName="APPNAME" />
+                <ScalarProperty Name="APPID" ColumnName="APPID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JAPPLICATIONs">
+            <EntityTypeMapping TypeName="Model.JAPPLICATION">
+              <MappingFragment StoreEntitySet="JAPPLICATION">
+                <ScalarProperty Name="VERSIONDESKTOP" ColumnName="VERSIONDESKTOP" />
+                <ScalarProperty Name="VERSIONWEB" ColumnName="VERSIONWEB" />
+                <ScalarProperty Name="VERSIONIOS" ColumnName="VERSIONIOS" />
+                <ScalarProperty Name="VERSIONANDROID" ColumnName="VERSIONANDROID" />
+                <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+                <ScalarProperty Name="CLIENTID" ColumnName="CLIENTID" />
+                <ScalarProperty Name="TIME" ColumnName="TIME" />
+                <ScalarProperty Name="USERCREATE" ColumnName="USERCREATE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="APPNAME" ColumnName="APPNAME" />
+                <ScalarProperty Name="APPID" ColumnName="APPID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

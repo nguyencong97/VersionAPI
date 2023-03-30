@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="78e5e5b956e847238f4646b008d4441b" Name="Diagram1" ZoomLevel="108">
+        <EntityTypeShape EntityType="Model.MTGROUPBYUSER" Width="2.25" PointX="7.625" PointY="16.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.MTGROUPUSER" Width="2.25" PointX="3" PointY="20.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.MTLOG" Width="1.25" PointX="0.5" PointY="11.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.MTUSER" Width="3.625" PointX="3.5" PointY="10.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.MTUSERBYMENU" Width="2.25" PointX="7.375" PointY="20.25" IsExpanded="false" />
+        <AssociationConnector Association="Model.MTGROUPBYUSERGROUPUSERID" />
+        <AssociationConnector Association="Model.MTGROUPBYUSERUSERID" />
+        <AssociationConnector Association="Model.MTUSERBYMENUUSERID" />
+        <EntityTypeShape EntityType="Model.MTUSERBYGROUPMENU" Width="2.75" PointX="13.625" PointY="13.5" IsExpanded="false" />
+        <AssociationConnector Association="Model.MTUSERBYGROUPMENUUSERID" />
+        <EntityTypeShape EntityType="Model.MTAPPBYUSER" Width="1.5" PointX="13.625" PointY="16.625" IsExpanded="false" />
+        <AssociationConnector Association="Model.MTAPPBYUSERUSERID" />
+        <EntityTypeShape EntityType="Model.MTUSERBYSUBUSER" Width="2.125" PointX="10.5" PointY="17.75" IsExpanded="false" />
+        <AssociationConnector Association="Model.MTUSERBYSUBUSERSUBUSERID" />
+        <AssociationConnector Association="Model.MTUSERBYSUBUSERUSERID" />
+        <EntityTypeShape EntityType="Model.MTUSERBYSUBMENU" Width="2.375" PointX="15.75" PointY="14.75" IsExpanded="false" />
+        <AssociationConnector Association="Model.MTUSERBYSUBMENUUSERID" />
+        <EntityTypeShape EntityType="Model.MTGROUPBYMENU" Width="2.25" PointX="10.625" PointY="23" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.MTGROUPMENUBYSUBMENU" Width="2.25" PointX="9.625" PointY="19.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.MTUSERBYGROUPUSER" Width="2.5" PointX="2.875" PointY="18.375" IsExpanded="false" />
+        <AssociationConnector Association="Model.SERBYGROUPUSERGROUPUSERID" />
+        <AssociationConnector Association="Model.MTUSERBYGROUPUSERUSERID" />
+        <EntityTypeShape EntityType="Model.MTMENU" Width="1.875" PointX="4.875" PointY="22.75" IsExpanded="false" />
+        <AssociationConnector Association="Model.MTGROUPBYMENUMENUID" />
+        <AssociationConnector Association="Model.UBYSDUBMENUMENUID" />
+        <AssociationConnector Association="Model.BYSUBMENUMENUID" />
+        <AssociationConnector Association="Model.MTUSERBYMENUMENUID" />
+        <EntityTypeShape EntityType="Model.MTGROUPMENU" Width="2" PointX="10.125" PointY="11.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model.MTSUBMENU" Width="1.5" PointX="14" PointY="22.125" IsExpanded="false" />
+        <AssociationConnector Association="Model.MTGROUPBYMENUGROUPMENUID" />
+        <AssociationConnector Association="Model.MTUSERBYGROUPMENUGROUPMENUID" />
+        <AssociationConnector Association="Model.SUBMENUGROUPMENUID" />
+        <AssociationConnector Association="Model.SUWBMENUSUBMENUID" />
+        <AssociationConnector Association="Model.MTSUBMENUMENUID" />
+        <AssociationConnector Association="Model.BYSUBMENUSUBMENUID" />
+        <EntityTypeShape EntityType="Model.MTAPPLICATION" Width="2.875" PointX="0.5" PointY="15.625" IsExpanded="false" />
+        <AssociationConnector Association="Model.MTAPPBYUSERAPPID" />
+        <AssociationConnector Association="Model.MTGROUPBYMENUAPPID" />
+        <AssociationConnector Association="Model.MTGROUPBYUSERAPPID" />
+        <AssociationConnector Association="Model.MTGROUPMENUBYSUBMENUAPPID" />
+        <AssociationConnector Association="Model.MTGROUPMENUGROUPMENUAPPID" />
+        <AssociationConnector Association="Model.MTGROUPUSERGROUPUSERAPPID" />
+        <AssociationConnector Association="Model.MTMENUMENUAPPID" />
+        <AssociationConnector Association="Model.MTSUBMENUAPPID" />
+        <AssociationConnector Association="Model.MTUSERBYGROUPMENUAPPID" />
+        <AssociationConnector Association="Model.MTUSERBYGROUPUSERAPPID" />
+        <AssociationConnector Association="Model.MTUSERBYMENUAPPID" />
+        <AssociationConnector Association="Model.MTUSERBYSUBMENUAPPID" />
+        <AssociationConnector Association="Model.MTUSERBYSUBUSERAPPID" />
+        <EntityTypeShape EntityType="Model.JAPPLICATION" Width="1.5" PointX="0.75" PointY="0.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
