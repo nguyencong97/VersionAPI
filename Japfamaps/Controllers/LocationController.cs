@@ -28,15 +28,15 @@ namespace VersionAPI.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Location> GetLocations(string divisionID = null)
+        public IEnumerable<Location> GetLocations(string divisionID = null, string region = null)
         {
-            return japfaMap.GetLocations(divisionID);
+            return japfaMap.GetLocations(divisionID, region);
         }
 
         [HttpGet]
-        public IEnumerable<Location> GetLocationsV1(string divisionID = null)
+        public IEnumerable<Location> GetLocationsV1(string divisionID = null, string region = null)
         {
-            return japfaMap.GetLocations(divisionID);
+            return japfaMap.GetLocations(divisionID, region);
         }
 
         [HttpGet]
@@ -354,18 +354,18 @@ namespace VersionAPI.Controllers
         }
 
 
-        [HttpPost]
-        public IHttpActionResult UpdateLocation()
-        {
-            try
-            {
-                return Ok(japfaMap.UpdateLocation());
-            }
-            catch (Exception ex)
-            {
-                return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, ex.Message));
-            }
-        }
+        //[HttpPost]
+        //public IHttpActionResult UpdateLocation()
+        //{
+        //    try
+        //    {
+        //        return Ok(japfaMap.UpdateLocation());
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return ResponseMessage(Request.CreateResponse(HttpStatusCode.NotFound, ex.Message));
+        //    }
+        //}
 
 
         #endregion

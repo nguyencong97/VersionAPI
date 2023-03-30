@@ -25,11 +25,31 @@ namespace BLL
         }
 
 
-        public IEnumerable<Location> GetLocations(string divisionID)
+        public IEnumerable<Location> GetLocations(string divisionID, string region)
         {
             if (divisionID == null)
             {
-                return unitOfWorkJapfaMap.TBLLOCATION_Repository.GetAll().Where(x => x.LOCATIONSTATUS != 2 && x.LOCATIONSTATUS != 0)// khong phai la add hoặc lock thi lay ra
+                if (region == null)
+                {
+                    return unitOfWorkJapfaMap.TBLLOCATION_Repository.GetAll().Where(x => x.LOCATIONSTATUS != 2 && x.LOCATIONSTATUS != 0)// khong phai la add hoặc lock thi lay ra
+                              .Select(x => new Location
+                              {
+                                  id = (int)x.IDLOCATION,
+                                  mLocation = x.MLOCATION,
+                                  mLat = (double)x.MLAT,
+                                  mLong = (double)x.MLONG,
+                                  mUnit = x.MSUBDIVISION,
+                                  mRegion = x.MREGION,
+                                  mDivision = x.MDIVISION,
+                                  mContact = x.MCONTACT,
+                                  mNumberPhone = x.MNUMBERPHONE,
+                                  mAddress = x.MADDRESS,
+                                  mLocationLink = x.IDLOCATIONLINK,
+                                  selected = true,
+                              }).OrderByDescending(x => x.id);
+                }
+                else {
+                    return unitOfWorkJapfaMap.TBLLOCATION_Repository.GetAll().Where(x => x.LOCATIONSTATUS != 2 && x.LOCATIONSTATUS != 0 && x.MREGION == region)// khong phai la add hoặc lock thi lay ra
                           .Select(x => new Location
                           {
                               id = (int)x.IDLOCATION,
@@ -45,10 +65,13 @@ namespace BLL
                               mLocationLink = x.IDLOCATIONLINK,
                               selected = true,
                           }).OrderByDescending(x => x.id);
+                }               
             }
             else
             {
-                return unitOfWorkJapfaMap.TBLLOCATION_Repository.GetAll().Where(x => x.MDIVISION == divisionID && x.LOCATIONSTATUS != 2 && x.LOCATIONSTATUS !=0)// khong phai la add hoặc lock thi lay ra
+                if (region == null)
+                {
+                    return unitOfWorkJapfaMap.TBLLOCATION_Repository.GetAll().Where(x => x.MDIVISION == divisionID && x.LOCATIONSTATUS != 2 && x.LOCATIONSTATUS != 0)// khong phai la add hoặc lock thi lay ra
                         .Select(x => new Location
                         {
                             id = (int)x.IDLOCATION,
@@ -64,6 +87,25 @@ namespace BLL
                             mLocationLink = x.IDLOCATIONLINK,
                             selected = true,
                         }).OrderByDescending(x => x.id);
+                }
+                else {
+                    return unitOfWorkJapfaMap.TBLLOCATION_Repository.GetAll().Where(x => x.MDIVISION == divisionID && x.MREGION == region && x.LOCATIONSTATUS != 2 && x.LOCATIONSTATUS != 0)// khong phai la add hoặc lock thi lay ra
+                        .Select(x => new Location
+                        {
+                            id = (int)x.IDLOCATION,
+                            mLocation = x.MLOCATION,
+                            mLat = (double)x.MLAT,
+                            mLong = (double)x.MLONG,
+                            mUnit = x.MSUBDIVISION,
+                            mRegion = x.MREGION,
+                            mDivision = x.MDIVISION,
+                            mContact = x.MCONTACT,
+                            mNumberPhone = x.MNUMBERPHONE,
+                            mAddress = x.MADDRESS,
+                            mLocationLink = x.IDLOCATIONLINK,
+                            selected = true,
+                        }).OrderByDescending(x => x.id);
+                }
             }
            
         }
